@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="390" data-canvas-height="2342" style="width:390px;height:2342px;">
+<head>
+<meta charset="UTF-8">
+<title>灵巧手先学会防水，再谈灵巧 · 手机版</title>
+<style>
+  @font-face { font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap; }
+  :root { --paper:#F4F0E8; --paper-deep:#EBE5D8; --ink:#1B1B19; --ink-soft:#5C574E;
+          --ink-faint:#8C877C; --accent:#B23A2A; --rule:rgba(27,27,25,0.16); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; width:390px; height:2342px; background:var(--paper);
+    font-family:"Source Han Sans SC VF","PingFang SC",sans-serif; color:var(--ink); }
+  main { width:390px; height:2342px; }
+  .serif { font-family:"Source Han Serif CN", serif; font-weight:600; }
+  .latin { font-family:"Montserrat", sans-serif; font-weight:400; }
+
+  .topbar { display:flex; justify-content:space-between; padding:9px 20px; border-bottom:1px solid var(--rule);
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .masthead { padding:16px 20px 12px; border-bottom:2px solid var(--ink); }
+  .masthead .row1 { display:flex; align-items:flex-end; justify-content:space-between; }
+  .logotype { font-size:30px; letter-spacing:4px; line-height:1; color:var(--ink); text-decoration:none; }
+  .masthead .suffix { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); padding-bottom:3px; }
+  .masthead .slogan { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline; }
+  .masthead .slogan .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:12px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .masthead .slogan .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.2px; color:var(--ink-faint); }
+
+  .nav { display:flex; flex-wrap:wrap; gap:12px; padding:10px 20px; border-bottom:1px solid var(--rule);
+    font-size:11.5px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .nav a { text-decoration:none; color:inherit; }
+  .nav a.on { color:var(--accent); }
+
+  .kicker { display:flex; align-items:center; gap:8px; margin-top:22px; }
+  .kicker .bar { width:22px; height:2px; background:var(--accent); }
+  .kicker .txt { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.8px; color:var(--accent); }
+
+  h1.cover.sm { font-size:26px; }
+  h1.cover.xxs { font-size:21px; }
+  h1.cover.xs { font-size:23px; }
+  h1.cover { margin:12px 20px 0; font-family:"Source Han Serif CN",serif; font-weight:600;
+    font-size:29px; line-height:1.34; letter-spacing:0.8px; color:var(--ink); }
+  .deck { text-wrap: pretty; margin:12px 20px 0; font-size:13.5px; line-height:1.75; color:var(--ink-soft); letter-spacing:0.2px; }
+  .byline { margin:14px 20px 0; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .byline .tag { border:1px solid var(--rule); padding:2px 6px; color:var(--ink-soft); letter-spacing:0.8px; }
+  .readlink { display:inline-block; margin:12px 20px 0; font-size:12px; color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:2px; letter-spacing:0.6px; }
+
+  .sec-label { margin:28px 20px 0; padding-bottom:8px; border-bottom:1px solid var(--ink);
+    display:flex; justify-content:space-between; align-items:baseline; }
+  .sec-label .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1px; }
+  .sec-label .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.6px; color:var(--ink-faint); }
+
+  .card { display:block; margin:0 20px; padding:16px 0 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .card .meta { display:flex; gap:8px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .card .meta .idx { color:var(--accent); }
+  .card h3 { text-wrap: pretty; margin:8px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; line-height:1.5; letter-spacing:0.8px; color:var(--ink); }
+  .card p { text-wrap: pretty; margin:8px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .card .time { margin-top:9px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .briefrow { display:flex; gap:10px; align-items:baseline; padding:11px 20px; border-bottom:1px solid rgba(27,27,25,0.08); text-decoration:none; color:inherit; }
+  .briefrow .t { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1px; color:var(--ink-faint); width:30px; flex:0 0 30px; }
+  .briefrow .cat { font-size:9.5px; color:var(--accent); letter-spacing:0.6px; flex:0 0 54px; }
+  .briefrow .h { text-wrap: pretty; font-size:12.5px; line-height:1.6; color:var(--ink); }
+
+  .chips { display:flex; flex-wrap:wrap; gap:7px; padding:14px 20px 0; }
+  .chip { display:inline-block; padding:5px 9px; border:1px solid var(--rule); font-size:10.5px; letter-spacing:0.5px; color:var(--ink-soft); text-decoration:none; }
+  .chip.on { background:var(--ink); color:#F1ECE1; border-color:var(--ink); }
+
+  .row { display:block; padding:16px 20px 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .row .top { display:flex; gap:9px; align-items:baseline; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .row .top .idx { color:var(--accent); font-size:9px; }
+  .row h3 { text-wrap: pretty; margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:18px; line-height:1.5; letter-spacing:0.6px; }
+  .row p { text-wrap: pretty; margin:7px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .row .foot { margin-top:8px; font-size:9.5px; letter-spacing:0.8px; color:var(--ink-faint); }
+
+  .monthband { display:flex; align-items:baseline; gap:10px; margin:20px 20px 0; padding-bottom:9px; border-bottom:1px solid var(--ink); }
+  .monthband .m { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1.2px; }
+  .monthband .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); }
+  .monthband .n { margin-left:auto; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .body { padding:0 20px; }
+  .body .lead { text-wrap: pretty; margin:20px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .body .lead { border-left:2px solid var(--accent); padding-left:14px; }
+  .body h2 { margin:26px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.8px; }
+  .body h2 .idx { color:var(--accent); font-family:"Montserrat",sans-serif; font-weight:400; font-size:10px; letter-spacing:1.4px; margin-right:8px; }
+  .body p { text-wrap: pretty; margin:12px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .quote { margin:22px 0 0; padding:14px 0 14px 16px; border-left:2px solid var(--ink); }
+  .quote p { text-wrap: pretty; margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:16px; line-height:1.85; letter-spacing:0.4px; color:var(--ink); }
+  .quote .who { margin-top:10px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.3px; color:var(--ink-faint); }
+  .dataline { margin:22px 0 0; border-top:1px solid var(--ink); }
+  .dl-row { display:flex; gap:8px; padding:10px 0; border-bottom:1px solid rgba(27,27,25,0.08); }
+  .dl-row .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; color:var(--accent); width:20px; flex:0 0 20px; }
+  .dl-row .k { font-size:11.5px; color:var(--ink); width:76px; flex:0 0 76px; line-height:1.55; }
+  .dl-row .v { text-wrap: pretty; font-size:11.5px; color:var(--ink-soft); line-height:1.65; flex:1; }
+  .source-note { text-wrap: pretty; margin:22px 0 0; padding:14px 16px; background:var(--paper-deep); font-size:11px; line-height:1.75; color:var(--ink-soft); }
+  .kw { margin:18px 20px 0; display:flex; flex-wrap:wrap; gap:6px; }
+  .kw .k { font-size:10px; padding:3px 7px; border:1px solid var(--rule); color:var(--ink-soft); }
+  .pick { display:block; margin:0 20px; padding:14px 0; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .pick .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.4px; color:var(--accent); }
+  .pick h3 { margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.6px; }
+
+  .reprint-line { margin:12px 0 0; font-size:9.5px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; text-wrap:pretty; }
+  .chan-note { margin:22px 20px 0; padding:14px 16px; background:var(--paper-deep); }
+  .chan-note .caps2 { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.6px; color:var(--ink-faint); }
+  .chan-note p { margin:8px 0 0; font-size:12px; line-height:1.75; color:var(--ink-soft); }
+
+  .sub { margin:26px 20px 0; background:var(--ink); color:#F1ECE1; padding:20px; }
+  .sub h3 { margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; letter-spacing:1.2px; }
+  .sub p { text-wrap: pretty; margin:8px 0 0; font-size:11.5px; line-height:1.7; color:rgba(241,236,225,0.72); }
+  .sub .form { margin-top:14px; display:flex; }
+  .sub .form input { flex:1; height:40px; border:1px solid rgba(241,236,225,0.4); background:transparent; color:#F1ECE1; padding:0 10px; font-family:inherit; font-size:11.5px; }
+  .sub .form button { height:40px; padding:0 16px; border:none; background:var(--accent); color:#FBF6EE; font-family:inherit; font-size:11.5px; letter-spacing:1px; }
+
+  .foot { margin-top:26px; padding:18px 20px 0; border-top:2px solid var(--ink); }
+  .foot .logo { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; letter-spacing:3px; color:var(--ink); }
+  .foot .cols { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .foot .legal { margin-top:12px; font-size:9px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; }
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:390px;height:2342px;">
+<main data-canvas-root style="width:390px;height:2342px;">
+  <div class="topbar"><div>ARTICLE · 核心零部件</div><div>2026 / 11 / 17</div></div>
+  <header class="masthead">
+    <div class="row1"><a class="logotype serif" href="/">COROBOT</a><span class="suffix">corobot.com</span></div>
+    <div class="slogan"><span class="t">把 AI 带进物理世界</span><span class="n">第 001 期 · 每日更新</span></div>
+  </header>
+  <nav class="nav">
+    <a href="mobile-article.html">封面故事</a><a href="/latest/" class="">最新资讯</a>
+    <a href="/">每日快讯</a><a href="/latest/" class="">频道</a>
+    <a href="/latest/">全部</a>
+  </nav>
+  <div class="kicker" style="margin-left:20px;"><span class="bar"></span><span class="txt">PRODUCT NOTE ｜ 核心零部件</span></div>
+  <h1 class="cover sm">灵巧手先学会防水，<br>再谈灵巧</h1>
+  <p class="deck">和多数做陆地场景的灵巧手公司不同，HeymanDex 把水下当起点：WA100 标准配置 300 米，可定制到 10000 米；五指、6 个主动自由度、11 个联动关节，重量不超过 1250 克。</p>
+  <div class="byline"><span>文 / Corobot 编辑部</span><span>2026.11.13</span><span>阅读 4 分钟</span><span class="tag">核心零部件</span></div>
+  <div class="body">
+    <p class="lead">多关节手要在水下同时满足两件事：关节还得能动，密封不能破。这不是加一层外壳能解决的。</p>
+    <h2><span class="idx">01</span>团队的来路决定了选题</h2>
+    <p>HeymanDex 核心团队此前参与过 8000 米级深海着陆器与蛟龙号载人潜水器的采样子系统，对水压、腐蚀与密封有工程直觉。</p>
+    <p>他们的判断是：机器人要走出干燥平整的实验室，就得面对洗菜洗碗、含切削液与润滑油的车间、深海作业这些环境。所以把「防护」做成灵巧手的基础能力，而不是选配。</p>
+    <h2><span class="idx">02</span>难点在动密封</h2>
+    <p>手指要持续弯曲伸展，内部多个关节与传动机构还要保持灵活；在运动部件上做到可靠动密封、同时不牺牲传动效率，是最难的一段。</p>
+    <p>他们的方案按深度分两档：0–1000 米用高线速轴向动密封、高可靠径向静密封与磁耦合动密封；1000–10000 米另有液压动压补偿、充油磁耦合动压平衡与双级静密封。</p>
+    <h2><span class="idx">03</span>产品与场景</h2>
+    <p>WA100 是首款商用产品，标准工程配置支持 300 米作业，可按需求定制 100 米到 10000 米的不同版本；五指结构、6 个主动自由度、11 个联动关节，重量不超过 1250 克。</p>
+    <p>除水下工程，另一类更日常的场景是「湿且脏」的活：洗菜、洗碗、带切削液的机加工工位——这些正是陆地灵巧手最容易进水的场合。</p>
+    <h2><span class="idx">04</span>空白</h2>
+    <p>报道未给抓握力、重复定位精度、寿命指标与价格；万米级定制的交付周期也没有说明。</p>
+    <p>防水做扎实只是入场券。灵巧手真正的竞争点仍是耐久与成本——这两项在这篇采访里都没有数字。</p>
+    <div class="source-note">本文依据 TechNode 采访整理；作业深度、自由度、重量为公司给出数据，抓握力与价格未披露。</div>
+  </div>
+  <div class="reprint-line">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+  <div class="sec-label"><span class="t">接着读</span><span class="e">NEXT</span></div>
+  <a class="pick" href="mobile-a-ai100-embodied.html"><div class="e">REPORT</div><h3>AI100 把具身智能列为核心难题，<br>顺手写下一个尴尬数字</h3></a>
+  <a class="pick" href="mobile-a-unitree-wang.html"><div class="e">HUMANOID</div><h3>王兴兴说最棘手的是泛化，<br>却把时间表押在明年</h3></a>
+  <section class="sub">
+    <h3>每周一封周报</h3>
+    <p>只留技术要点与出处，不发通稿。</p>
+    <div class="form"><input type="email" placeholder="你的邮箱"><button>订阅</button></div>
+  </section>
+  <div class="foot">
+    <a class="logo serif" href="/" style="display:block;text-decoration:none;color:inherit;">COROBOT</a>
+    <div class="cols"><span>第 001 期 · 2026 年 11 月 17 日 · 更新至 2026.11.18</span><span>COROBOT.COM</span></div>
+    <div class="legal">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接；不转载全文，不替代原报道。</div>
+  </div>
+  <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+</main>
+</body>
+</html>

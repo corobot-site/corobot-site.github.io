@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="1440" data-canvas-height="3354" style="width:1440px;height:3354px;">
+<head>
+<meta charset="UTF-8">
+<title>Corobot · 第 001 期 — 把 AI 带进物理世界</title>
+<style>
+  @font-face {
+    font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-bold.ttf") format("truetype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --paper: #F4F0E8;
+    --paper-deep: #EBE5D8;
+    --ink: #1B1B19;
+    --ink-soft: #5C574E;
+    --ink-faint: #8C877C;
+    --accent: #B23A2A;
+    --blue: #2C3E50;
+    --rule: rgba(27,27,25,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 3354px; background: var(--paper); }
+  body {
+    font-family: "Source Han Sans SC VF", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink); -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: "Source Han Serif CN", "Songti SC", "SimSun", serif; }
+  .latin { font-family: "Montserrat", sans-serif; }
+  .caps { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--ink-faint); }
+  .rule-thin { height: 1px; background: var(--rule); }
+  a { color: inherit; }
+  .content-item, .atype, .colo-col a, .nav-back { text-decoration: none; color: inherit; }
+  .atype { display: block; }
+  .nav-back { font-size: inherit; color: var(--ink-soft); letter-spacing: 1px; }
+  .more-link { text-decoration: none; color: var(--ink-soft); font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid var(--rule-strong); padding-bottom: 2px; }
+  .content-item:hover .name, .atype:hover h4, .more-link:hover, .nav-items a:hover, .nav-back:hover, .colo-col a:hover { color: var(--accent); }
+
+
+  /* 统一宋体字重：该家族仅登记 600，避免伪字重 */
+  .masthead-right .tagline, .contents-title .t, .content-item .name,
+  .sec-item h3, .brief-left h2, .brief-row .h, .atype h4,
+  .sub-copy h2, .colo-logo, .logotype, .cover h1, .sec-band h2,
+  .content-item .name, .contents-title .t { font-weight: 600; }
+
+  /* 刊头数据条 */
+  .topbar {
+    height: 40px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 80px; border-bottom: 1px solid var(--rule);
+  }
+  .topbar .left, .topbar .right { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 1.8px; color: var(--ink-faint); }
+
+  /* 刊头 */
+  .masthead { height: 168px; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-block { display: flex; align-items: baseline; gap: 18px; }
+  .logotype {
+    font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 92px; letter-spacing: 10px; line-height: 1;
+  }
+  .logo-suffix { font-family: "Montserrat", sans-serif; font-size: 13px; letter-spacing: 3px; color: var(--ink-faint); }
+  .masthead-right { text-align: right; width: 420px; }
+  .masthead-right .tagline { font-family: "Source Han Serif CN", serif; font-size: 22px; letter-spacing: 2px; }
+  .masthead-right .note { margin-top: 10px; font-size: 12px; line-height: 1.7; color: var(--ink-soft); }
+
+  /* 导航 */
+  .navbar {
+    height: 56px; padding: 0 80px; display: flex; align-items: center;
+    border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule);
+  }
+  .nav-items { display: flex; gap: 42px; }
+  .nav-items a {
+    text-decoration: none; color: var(--ink); font-size: 14px; letter-spacing: 2px;
+  }
+  .nav-items a.active { border-bottom: 1px solid var(--accent); padding-bottom: 2px; color: var(--accent); }
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+  .nav-right .issues { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 1.6px; color: var(--ink-faint); }
+  .nav-sub {
+    font-size: 13px; letter-spacing: 1px; color: var(--ink); text-decoration: none;
+    border: 1px solid var(--ink); padding: 8px 18px;
+  }
+
+  /* 封面故事 */
+  .cover { position: relative; height: 690px; padding: 44px 80px 0; }
+  .cover-left { width: 660px; }
+  .kicker { display: flex; align-items: center; gap: 14px; }
+  .kicker .bar { width: 46px; height: 2px; background: var(--accent); }
+  .kicker .txt { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 2.4px; color: var(--accent); text-transform: uppercase; }
+  .cover h1 {
+    margin-top: 26px; font-family: "Source Han Serif CN", serif; font-weight: 600;
+    font-size: 60px; line-height: 1.28; letter-spacing: 1.5px;
+  }
+  .cover h1 .accent-line { color: var(--accent); }
+  .cover-dek {
+    margin-top: 26px; width: 600px; font-size: 16px; line-height: 1.95; color: var(--ink-soft);
+  }
+  .byline {
+    margin-top: 28px; display: flex; align-items: center; gap: 16px;
+    font-size: 12px; color: var(--ink-faint); letter-spacing: 1px;
+  }
+  .byline .sep { width: 1px; height: 12px; background: var(--rule); }
+  .read-more {
+    margin-top: 34px; display: inline-flex; align-items: center; gap: 12px;
+    font-size: 14px; letter-spacing: 1px; color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid var(--ink); padding-bottom: 5px;
+  }
+  .cover-figure { position: absolute; right: 80px; top: 44px; width: 500px; }
+  .cover-figure img { width: 500px; height: 625px; object-fit: cover; display: block; filter: saturate(0.82) contrast(1.02); }
+  .cover-caption {
+    margin-top: 12px; display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 11px; letter-spacing: 0.5px; color: var(--ink-faint);
+  }
+  .cover-caption .cap-num { font-family: "Montserrat", sans-serif; letter-spacing: 1.6px; }
+
+  /* 本期目录 */
+  .contents { margin: 0 80px; height: 196px; background: var(--paper-deep); padding: 30px 34px; display: flex; gap: 40px; }
+  .contents-title { width: 150px; }
+  .contents-title .t { font-family: "Source Han Serif CN", serif; font-size: 26px; letter-spacing: 3px; }
+  .contents-title .e { margin-top: 8px; }
+  .contents-list { flex: 1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; row-gap: 18px; }
+  .content-item { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px dotted rgba(27,27,25,0.28); padding-bottom: 10px; }
+  .content-item .no { font-family: "Montserrat", sans-serif; font-size: 12px; letter-spacing: 1.4px; color: var(--accent); width: 26px; }
+  .content-item .name { font-family: "Source Han Serif CN", serif; font-size: 18px; letter-spacing: 1px; }
+  .content-item .page { margin-left: auto; font-family: "Montserrat", sans-serif; font-size: 12px; color: var(--ink-faint); }
+
+  /* 次条 */
+  .secondary { height: 430px; padding: 56px 80px 0; }
+  .sec-band { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--ink); padding-bottom: 14px; }
+  .sec-band .l { display: flex; align-items: baseline; gap: 16px; }
+  .sec-band h2 { font-family: "Source Han Serif CN", serif; font-size: 32px; letter-spacing: 3px; font-weight: 600; }
+  .sec-band .r { font-size: 12px; color: var(--ink-faint); letter-spacing: 1px; }
+  .sec-grid { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 0; }
+  .sec-item { padding: 0 34px; border-left: 1px solid var(--rule); }
+  .sec-item:first-child { padding-left: 0; border-left: none; }
+  .sec-item:last-child { padding-right: 0; }
+  .sec-item .meta { display: flex; align-items: center; gap: 10px; font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: 1.6px; color: var(--accent); }
+  .sec-item .meta .idx { color: var(--ink-faint); }
+  .sec-item h3 { margin-top: 14px; font-family: "Source Han Serif CN", serif; font-size: 25px; line-height: 1.45; letter-spacing: 0.8px; }
+  .sec-item p { margin-top: 14px; font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
+  .sec-item .time { margin-top: 18px; font-size: 11px; letter-spacing: 1px; color: var(--ink-faint); }
+
+  /* 快讯 */
+  .brief { height: 372px; margin: 0 80px; background: var(--ink); color: #F1ECE1; padding: 44px 44px; display: flex; gap: 56px; }
+  .brief-left { width: 300px; }
+  .brief-left .caps { color: rgba(241,236,225,0.6); }
+  .brief-left h2 { margin-top: 12px; font-family: "Source Han Serif CN", serif; font-size: 34px; letter-spacing: 3px; }
+  .brief-left p { margin-top: 16px; font-size: 13px; line-height: 1.9; color: rgba(241,236,225,0.72); }
+  .brief-list { flex: 1; }
+  .brief-row { display: flex; gap: 26px; padding: 13px 0; border-bottom: 1px solid rgba(241,236,225,0.16); align-items: baseline; }
+  .brief-row .t { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: 1.4px; color: #D9A79C; width: 52px; }
+  .brief-row .cat { font-size: 11px; letter-spacing: 1px; color: rgba(241,236,225,0.55); width: 96px; }
+  .brief-row .h { font-family: "Source Han Serif CN", serif; font-size: 18px; letter-spacing: 0.6px; }
+
+  /* 图鉴 */
+  .atlas { padding: 70px 80px 0; }
+  .atlas .sec-band { padding-bottom: 12px; }
+  .atlas-band { margin-top: 30px; width: 1280px; height: 300px; overflow: hidden; background: #EAE3D4; }
+  .atlas-band img { width: 1280px; height: 427px; object-fit: cover; display: block; margin-top: -52px; mix-blend-mode: multiply; }
+  .atlas-caption { margin-top: 12px; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.6px; }
+  .atlas-types { margin-top: 26px; padding-bottom: 70px; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 40px; }
+  .atype { border-top: 1px solid var(--rule); padding-top: 14px; }
+  .atype .n { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: 1.6px; color: var(--accent); }
+  .atype h4 { margin-top: 8px; font-family: "Source Han Serif CN", serif; font-size: 19px; letter-spacing: 1px; }
+  .atype p { margin-top: 8px; font-size: 13px; line-height: 1.75; color: var(--ink-soft); }
+
+  /* 订阅 */
+  .subscribe-band { height: 268px; background: var(--accent); color: #FBF6EE; padding: 0 80px; display: flex; align-items: center; gap: 60px; }
+  .sub-copy h2 { font-family: "Source Han Serif CN", serif; font-size: 40px; letter-spacing: 2px; line-height: 1.35; }
+  .sub-copy p { margin-top: 14px; font-size: 14px; line-height: 1.8; color: rgba(251,246,238,0.86); width: 560px; }
+  .sub-form { margin-left: auto; display: flex; gap: 0; align-items: center; }
+  .sub-form input {
+    width: 320px; height: 54px; border: 1px solid rgba(251,246,238,0.5); background: transparent;
+    color: #FBF6EE; font-size: 14px; padding: 0 18px; font-family: inherit;
+  }
+  .sub-form input::placeholder { color: rgba(251,246,238,0.65); }
+  .sub-form button {
+    height: 54px; padding: 0 26px; border: none; background: #FBF6EE; color: var(--accent);
+    font-size: 14px; letter-spacing: 1px; font-family: inherit; cursor: pointer;
+  }
+  .sub-note { margin-top: 12px; font-size: 11px; letter-spacing: 0.8px; color: rgba(251,246,238,0.7); }
+
+  /* 版权页 */
+  .colophon { height: 342px; padding: 48px 80px 0; background: var(--paper); }
+  .colo-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 26px; border-bottom: 2px solid var(--ink); }
+  .colo-logo { font-family: "Source Han Serif CN", serif; font-size: 46px; letter-spacing: 6px; }
+  .colo-issue { text-align: right; font-size: 12px; line-height: 1.9; color: var(--ink-soft); letter-spacing: 1px; }
+  .colo-cols { display: flex; gap: 88px; margin-top: 28px; }
+  .colo-col .h { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: 2.2px; color: var(--ink-faint); }
+  .colo-col li { list-style: none; margin-top: 10px; font-size: 13px; color: var(--ink-soft); letter-spacing: 0.4px; }
+  .colo-about { width: 380px; }
+  .colo-about p { margin-top: 12px; font-size: 13px; line-height: 1.9; color: var(--ink-soft); }
+  .colo-bottom {
+    margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.8px;
+  }
+  .reprint { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; gap: 16px; }
+  .reprint .k { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2px; color: var(--accent); white-space: nowrap; padding-top: 2px; }
+  .reprint .t { font-size: 11px; line-height: 1.9; color: var(--ink-faint); letter-spacing: 0.3px; }
+
+  a.sec-item { text-decoration: none; color: inherit; display: block; }
+  a.sec-item:hover h3 { color: var(--accent); }
+  a.brief-row { text-decoration: none; color: inherit; }
+  a.brief-row:hover .h { color: #D9A79C; }
+
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:1440px;height:3354px;">
+<main data-canvas-root style="width:1440px;height:3354px;">
+
+  <div class="topbar">
+    <div class="left">ISSUE 001 &nbsp;·&nbsp; MONTHLY NOTE &nbsp;·&nbsp; FREE DISTRIBUTION</div>
+    <div class="right">2026 / 11 / 17 &nbsp;·&nbsp; 更新至 2026.11.18 &nbsp;·&nbsp; SHANGHAI</div>
+  </div>
+
+  <header class="masthead">
+    <div class="logo-block">
+      <a class="logotype" href="/" style="text-decoration:none;color:inherit;">COROBOT</a>
+      <div class="logo-suffix">corobot.com</div>
+    </div>
+    <div class="masthead-right">
+      <div class="tagline">把 AI 带进物理世界</div>
+      <div class="note">AI × Robotics 观察刊物<br>追踪模型能力如何落进毫米与毫秒之间</div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-items">
+      <a href="/cover/" class="active">封面故事</a>
+      <a href="/latest/">最新资讯</a>
+      <a href="#brief">每日快讯</a>
+      <a href="/atlas/">机器人图鉴</a>
+      <a href="/latest/">深度专题</a>
+    </div>
+    <div class="nav-right">
+      <div class="issues">PAST ISSUES 001—</div>
+      <a class="nav-sub" href="#subscribe">订阅本刊</a>
+    </div>
+  </nav>
+
+  <!-- 封面故事 -->
+  <section class="cover">
+    <div class="cover-left">
+      <div class="kicker"><span class="bar"></span><span class="txt">Cover Story ｜ 封面故事</span></div>
+      <h1>机器人不是<br>某一种形状，<br><span class="accent-line">而是 AI 触碰世界的方式</span></h1>
+      <p class="cover-dek">我们把机器人理解得足够宽：会走路的双足平台、守在工位上的机械臂、在仓库里跑的轮式底盘、悬在空中的无人机，甚至一枚灵巧手、一个力控关节。它们共同回答同一个问题——模型懂了之后，谁来动手。</p>
+      <div class="byline"><span>文 / Corobot 编辑部</span><span class="sep"></span><span>阅读 8 分钟</span><span class="sep"></span><span>2026.11.17</span></div>
+      <a class="read-more" href="/cover/">阅读全文 →</a>
+    </div>
+    <figure class="cover-figure">
+      <img src="https://aka.doubaocdn.com/s/31Tq2iiBdH" alt="厂房中作业的工业机械臂">
+      <figcaption class="cover-caption">
+        <span>工业机械臂 · 单侧斜射光下的作业瞬间</span>
+        <span class="cap-num">FIG. 01</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 本期目录 -->
+  <section class="contents">
+    <div class="contents-title">
+      <div class="t serif">本期目录</div>
+      <div class="e caps">In This Issue</div>
+    </div>
+    <div class="contents-list">
+      <a class="content-item" href="/cover/"><span class="no">01</span><span class="name">机器人不是某一种形状</span><span class="page">P.01</span></a>
+      <a class="content-item" href="/latest/"><span class="no">02</span><span class="name">最新资讯 · 十九条</span><span class="page">P.06</span></a>
+      <a class="content-item" href="#brief"><span class="no">03</span><span class="name">每日快讯 · 时间轴</span><span class="page">P.09</span></a>
+      <a class="content-item" href="/atlas/"><span class="no">04</span><span class="name">机器人图鉴 · 四类载体</span><span class="page">P.14</span></a>
+      <a class="content-item" href="/latest/"><span class="no">05</span><span class="name">深度专题 · 三个连载</span><span class="page">P.22</span></a>
+      <a class="content-item" href="#subscribe"><span class="no">06</span><span class="name">订阅与版权页</span><span class="page">P.28</span></a>
+    </div>
+  </section>
+
+  <!-- 次条 -->
+  <section class="secondary" id="latest">
+    <div class="sec-band">
+      <div class="l">
+        <h2>本期要读</h2>
+        <span class="caps">Three Stories</span>
+      </div>
+      <a class="more-link" href="/latest/">查看全部资讯 →</a>
+    </div>
+    <div class="sec-grid">
+      <a class="sec-item" href="article-l3-l2-split.html">
+        <div class="meta"><span class="idx">03</span><span>AV</span></div>
+        <h3>同一天，<br>L3 和 L2 走了相反的方向</h3>
+        <p>享界把 L3 推到跨城 120km/h，奔驰把离手 L2 做成订阅。差别不在传感器，在出事之后谁承担。</p>
+        <div class="time">11.17 · 6 分钟 →</div>
+      </a>
+      <a class="sec-item" href="article-changying-8.html">
+        <div class="meta"><span class="idx">02</span><span>UAV</span></div>
+        <h3>3.5 吨货，<br>3000 公里</h3>
+        <p>长鹰-8 把整条空投流程跑通：300 米高度投放、货盘自动出舱、伞绳回收、落点评估。</p>
+        <div class="time">11.17 · 4 分钟 →</div>
+      </a>
+      <a class="sec-item" href="article-ace-cap-0.html">
+        <div class="meta"><span class="idx">09</span><span>COBOT</span></div>
+        <h3>让 AI 写代码，<br>然后把它冻住</h3>
+        <p>八项任务、240 次真机试验成功 221 次。程序冻结后 Agent 退出，代价是技能不再自适应。</p>
+        <div class="time">11.16 · 5 分钟 →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 快讯 -->
+  <section class="brief" id="brief">
+    <div class="brief-left">
+      <div class="caps">Daily Brief</div>
+      <h2>每日快讯</h2>
+      <p>按时间排列的短讯：只写发生了什么、为什么重要，并保留原始出处，方便你顺着链接往下读。</p>
+    </div>
+    <div class="brief-list">
+      <a class="brief-row" href="article-l3-l2-split.html"><span class="t">11.17</span><span class="cat">自动驾驶</span><span class="h">享界 V8 开启 120km/h L3 跨城路测，奔驰同日宣布美国离手 L2</span></a>
+      <a class="brief-row" href="article-changying-8.html"><span class="t">11.17</span><span class="cat">无人机</span><span class="h">长鹰-8 完成运输投送试验：载重 3.5 吨、航程超 3000 公里</span></a>
+      <a class="brief-row" href="article-unitree-wang.html"><span class="t">11.17</span><span class="cat">人形机器人</span><span class="h">王兴兴：泛化是最棘手的问题，希望换场景不用重新训练</span></a>
+      <a class="brief-row" href="article-ace-cap-0.html"><span class="t">11.16</span><span class="cat">协作机械臂</span><span class="h">ACE-CaP-0 让 Agent 写机器人代码，240 次真机试验成功 92.1%</span></a>
+      <a class="brief-row" href="article-realman-realbot.html"><span class="t">11.16</span><span class="cat">具身智能</span><span class="h">睿尔曼：机器人进厂的三条标准是质量、经济性、稳定性</span></a>
+    </div>
+  </section>
+
+  <!-- 图鉴 -->
+  <section class="atlas" id="atlas">
+    <div class="sec-band">
+      <div class="l">
+        <h2>机器人图鉴</h2>
+        <span class="caps">Atlas of Machines</span>
+      </div>
+      <div class="r">按"在哪动、怎么动"分类</div>
+    </div>
+    <div class="atlas-band">
+      <img src="https://aka.doubaocdn.com/s/uGWQ7308z3" alt="四类机器人形态丝网印刷插画">
+    </div>
+    <div class="atlas-caption">从左至右：双足人形平台 · 固定式多轴协作机械臂 · 轮式移动机器人 · 四旋翼无人机　／　插画风格示意</div>
+    <div class="atlas-types">
+      <a class="atype" href="/atlas/#entry-1"><div class="n">01 / HUMANOID</div><h4>人形平台</h4><p>双足行走、双臂操作，直接使用为人类设计的环境与工具。</p></a>
+      <a class="atype" href="/atlas/#entry-2"><div class="n">02 / COBOT</div><h4>协作机械臂</h4><p>固定底座加多轴关节，与人共处同一工位，承担精密重复动作。</p></a>
+      <a class="atype" href="/atlas/#entry-3"><div class="n">03 / AMR</div><h4>移动机器人</h4><p>在仓库与车间自主导航、搬运调度，替代的是"走"这件事。</p></a>
+      <a class="atype" href="/atlas/#entry-4"><div class="n">04 / UAV</div><h4>无人机</h4><p>空中作业平台，巡检、测绘与物流的边界由空域规则划定。</p></a>
+    </div>
+  </section>
+
+  <!-- 订阅 -->
+  <section class="subscribe-band" id="subscribe">
+    <div class="sub-copy">
+      <h2>每周一封，<br>把这一周机器人的真实进展寄给你</h2>
+      <p>不做情绪化标题，只保留技术要点、数据与出处，附上原文链接方便自行核对。</p>
+    </div>
+    <div>
+      <div class="sub-form">
+        <input type="email" placeholder="你的邮箱">
+        <button>订阅</button>
+      </div>
+      <div class="sub-note">每周一封 · 随时可退订 · 也可通过 RSS 订阅</div>
+    </div>
+  </section>
+
+  <!-- 版权页 -->
+  <footer class="colophon" id="colophon">
+    <div class="colo-top">
+      <a class="colo-logo" href="/" style="text-decoration:none;color:inherit;">COROBOT</a>
+      <div class="colo-issue">第 001 期　·　2026 年 11 月 17 日　·　更新至 2026.11.18 · 共 19 篇<br>出版：Corobot.com 编辑部　·　上海</div>
+    </div>
+    <div class="colo-cols">
+      <div class="colo-col colo-about">
+        <div class="h">ABOUT</div>
+        <p>关注 AI 与机器人的交叉地带。机器人是广义的：机械臂、移动底盘、无人机、自动驾驶与人形平台，都是 AI 进入物理世界的不同入口。</p>
+      </div>
+      <div class="colo-col">
+        <div class="h">SECTIONS</div>
+        <li><a href="/cover/">封面故事</a></li>
+        <li><a href="/latest/">最新资讯</a></li>
+        <li><a href="#brief">每日快讯</a></li>
+      </div>
+      <div class="colo-col">
+        <div class="h">EDITORIAL</div>
+        <li>内容原则</li>
+        <li>转载规范</li>
+        <li>更正与勘误</li>
+      </div>
+      <div class="colo-col">
+        <div class="h">CONTACT</div>
+        <li><a href="mailto:hello@corobot.com">hello@corobot.com</a></li>
+        <li>内容合作</li>
+        <li>RSS 订阅</li>
+      </div>
+    </div>
+    <div class="colo-bottom">
+      <div>© 2026 Corobot.com　·　内容仅作信息传播，不构成投资建议</div>
+      <div>PRIVACY　·　REPRINT　·　SITEMAP</div>
+    </div>
+        <div class="reprint">
+      <div class="k">转载声明</div>
+      <div class="t">本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+    </div>
+    <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+  </footer>
+
+</main>
+</body>
+</html>

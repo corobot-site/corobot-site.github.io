@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Corobot · 把 AI 带进物理世界</title>
+    <link>https://corobot.com/</link>
+    <description>把 AI 带进物理世界。记录机械臂、移动底盘、无人机、自动驾驶与人形平台的已核实进展。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 18 Nov 2026 11:26:24 GMT</lastBuildDate>
+    <atom:link href="https://corobot.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>实验室里九成，现场只剩三四成</title>
+      <link>https://corobot.com/articles/hk-embodied-ground/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/hk-embodied-ground/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>香港首个具身智能国际应用训练场运行一个多月，测出的第一个结论不是「机器人有多强」，而是「落差有多大」：不少方案在实验室表现出色，进入真实作业工况后，自主任务完成率只有三成至四成。</description>
+    </item>
+    <item>
+      <title>英伟达和 AMD 第一次站到同一边</title>
+      <link>https://corobot.com/articles/genesis-round-a/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/genesis-round-a/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>Genesis AI 完成 5 亿美元 A 轮，投后估值 35 亿美元。NVentures 与 AMD 风投同时入场，这是两家芯片巨头第一次共同投资一家具身智能公司。</description>
+    </item>
+    <item>
+      <title>一天之内：五笔钱、四百台机器人和一个开源模型</title>
+      <link>https://corobot.com/articles/cn-robotics-daily-1118/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/cn-robotics-daily-1118/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <category>核心零部件</category>
+      <description>11 月 18 日一天里，中国机器人产业链接连传出 UniX AI 5 亿元 Pre-A、TensorWorld 超 1 亿美元、曦选创智 5 亿元天使轮、优必选 400 台 U1 Pro 订单，以及华为云开源机器人世界模型。</description>
+    </item>
+    <item>
+      <title>同一件事，中韩走了两条相反的路</title>
+      <link>https://corobot.com/articles/cn-kr-two-paths/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/cn-kr-two-paths/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <category>产业与政策</category>
+      <description>中国头部机器人公司在做垂直整合加孵化生态：智元三年要孵 50 家，宇树联合红杉要养 200 家伙伴；韩国现代则把机器人的大脑外包给 Google DeepMind、仿真交给英伟达。</description>
+    </item>
+    <item>
+      <title>人形机器人第一次走进洁净室</title>
+      <link>https://corobot.com/articles/atlas-chip-fab/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/atlas-chip-fab/</guid>
+      <pubDate>Wed, 18 Nov 2026 01:00:00 GMT</pubDate>
+      <category>人形机器人</category>
+      <description>波士顿动力与 GlobalFoundries 达成合作，2027 年初在美国、德国、新加坡的晶圆厂实测 Atlas。这是汽车厂之外，人形机器人第一次进入半导体制造现场。</description>
+    </item>
+    <item>
+      <title>王兴兴说最棘手的是泛化，却把时间表押在明年</title>
+      <link>https://corobot.com/articles/unitree-wang/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/unitree-wang/</guid>
+      <pubDate>Tue, 17 Nov 2026 01:00:00 GMT</pubDate>
+      <category>人形机器人</category>
+      <description>11 月 17 日 APEC 深圳，宇树董事长王兴兴把泛化列为当下第一大挑战：一台机器人、一个模型，到任何一个家庭都能马上干活，而不是换个场景就重新训练。</description>
+    </item>
+    <item>
+      <title>同一天两条新闻，L3 和 L2 走了相反的方向</title>
+      <link>https://corobot.com/articles/l3-l2-split/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/l3-l2-split/</guid>
+      <pubDate>Tue, 17 Nov 2026 01:00:00 GMT</pubDate>
+      <category>自动驾驶</category>
+      <description>享界 V8 宣布全国首个 120km/h L3 跨城高速路测；奔驰宣布 2027 年在美国上线离手 L2 与点对点 L2，按订阅收费。同一天，两种对「谁负责」的回答。</description>
+    </item>
+    <item>
+      <title>3.5 吨货、3000 公里，无人机开始干重卡的活</title>
+      <link>https://corobot.com/articles/changying-8/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/changying-8/</guid>
+      <pubDate>Tue, 17 Nov 2026 01:00:00 GMT</pubDate>
+      <category>无人机</category>
+      <description>7 吨级大型运投无人机「长鹰-8」完成运输投送试验：300 米高度空投、货盘自动出舱、伞绳回收、落点评估。载重 3.5 吨，最大航程超 3000 公里。</description>
+    </item>
+    <item>
+      <title>两天挖出 28 个零日漏洞，机器人安全还在追赶</title>
+      <link>https://corobot.com/articles/zero-day/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/zero-day/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>产业与政策</category>
+      <description>一家车联网安全公司用 AI 辅助研究，在不到两天里找出 28 个零日漏洞，涉及 Google、NVIDIA、Meta 等维护的机器人相关项目；其中 75% 落在开发、训练、仿真与验证环节。</description>
+    </item>
+    <item>
+      <title>让机器人做取栓手术，卡住的不是刀，是网络</title>
+      <link>https://corobot.com/articles/telesurgery-stroke/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/telesurgery-stroke/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>产业与政策</category>
+      <description>Remedy Robotics 让医生隔着 6 米、几十公里甚至太平洋操作导管；首批 10 位患者身上的测试完成速度接近现行标准的两倍。但远程手术至今没有一家公司拿到完整监管批准。</description>
+    </item>
+    <item>
+      <title>机器人进厂的真问题：不是会不会干，是能不能连着干一年</title>
+      <link>https://corobot.com/articles/realman-realbot/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/realman-realbot/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>睿尔曼在常州工业具身智能大会上给出的三个标准是质量、经济性、稳定性；两台 RealBOT 轮式人形已部署到爱安特常州工厂的真实产线，做上下料与物料转运。</description>
+    </item>
+    <item>
+      <title>48 小时真机赛，冠军赢在把题做小</title>
+      <link>https://corobot.com/articles/lingbo-challenge/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/lingbo-challenge/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>首届蚂蚁灵波具身大模型挑战赛：15 支队伍、同一底座 LingBot-VLA 2.0、同一套硬件与算力、48 小时真机黑客松。冠军 TARS 队 82.5 分，平均年龄 25 岁。</description>
+    </item>
+    <item>
+      <title>华为云的世界模型宣布开源，但权重还没出现</title>
+      <link>https://corobot.com/articles/huawei-cloudrobo/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/huawei-cloudrobo/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>11 月 16 日发布的 CloudRobo-WM1.2 在昇腾上训练，官方称在两项操作 benchmark 上第一；截至发稿，没有下载地址，也没有权重与代码仓库。</description>
+    </item>
+    <item>
+      <title>500 万美元众筹之后，这台跟拍机器人开始卖 4999 元</title>
+      <link>https://corobot.com/articles/beni-follow-cam/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/beni-follow-cam/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>移动机器人</category>
+      <description>妙动科技的 Beni 在 Kickstarter 拿到 7926 名支持者、超 500 万美元，成为该平台消费级机器人众筹金额第一。11 月 14 日它第一次进线下店：标准套装 4999 元。</description>
+    </item>
+    <item>
+      <title>让 AI 自己写机器人的代码，然后把它冻住</title>
+      <link>https://corobot.com/articles/ace-cap-0/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/ace-cap-0/</guid>
+      <pubDate>Mon, 16 Nov 2026 01:00:00 GMT</pubDate>
+      <category>协作机械臂</category>
+      <description>商汤创始人王晓刚任董事长的 ACE Robotics 发布 ACE-CaP-0：由通用 AI Agent 写、测、改控制代码，再冻结成可复用技能。团队自测 240 次真机试验成功 221 次。</description>
+    </item>
+    <item>
+      <title>把相机挪到翼尖，这架无人机只能左转</title>
+      <link>https://corobot.com/articles/skydio-f10/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/skydio-f10/</guid>
+      <pubDate>Sun, 15 Nov 2026 01:00:00 GMT</pubDate>
+      <category>无人机</category>
+      <description>固定翼无人机巡检要绕着目标盘旋，机翼与尾翼会周期性扫过镜头。Skydio 的解法不是换相机，而是把整架飞机的气动布局改成不对称。</description>
+    </item>
+    <item>
+      <title>5 亿天使轮，赌一颗塞进机器人身体里的芯片</title>
+      <link>https://corobot.com/articles/xilect-chip/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/xilect-chip/</guid>
+      <pubDate>Fri, 13 Nov 2026 01:00:00 GMT</pubDate>
+      <category>核心零部件</category>
+      <description>沐曦与优必选联合创办的机器人芯片公司 Xilect 完成 5 亿元人民币天使轮：钱用于首颗芯片与配套软件，2027 年给合作伙伴开发测试平台，2028 年发布首颗芯片。</description>
+    </item>
+    <item>
+      <title>灵巧手先学会防水，再谈灵巧</title>
+      <link>https://corobot.com/articles/heymandex-wa100/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/heymandex-wa100/</guid>
+      <pubDate>Fri, 13 Nov 2026 01:00:00 GMT</pubDate>
+      <category>核心零部件</category>
+      <description>和多数做陆地场景的灵巧手公司不同，HeymanDex 把水下当起点：WA100 标准配置 300 米，可定制到 10000 米；五指、6 个主动自由度、11 个联动关节，重量不超过 1250 克。</description>
+    </item>
+    <item>
+      <title>AI100 把具身智能列为核心难题，顺手写下一个尴尬数字</title>
+      <link>https://corobot.com/articles/ai100-embodied/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/ai100-embodied/</guid>
+      <pubDate>Wed, 11 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>2026 版 AI100 报告（五年一份，这是第三份）把「物理 AI 与具身智能」列入六个重大挑战。同一份报告里还有一组数字：中国工业机器人部署量超过世界其余国家总和，人形机器人产量约占全球 80%，而这门生意目前只占市场 2%。</description>
+    </item>
+  </channel>
+</rss>

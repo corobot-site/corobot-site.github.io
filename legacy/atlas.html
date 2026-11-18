@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="1440" data-canvas-height="2314" style="width:1440px;height:2314px;">
+<head>
+<meta charset="UTF-8">
+<title>机器人图鉴 — Corobot 第 001 期</title>
+<style>
+  @font-face {
+    font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-bold.ttf") format("truetype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --paper: #F4F0E8; --paper-deep: #EBE5D8; --ink: #1B1B19; --ink-body: #2A2823;
+    --ink-soft: #5C574E; --ink-faint: #8C877C; --accent: #B23A2A; --rule: rgba(27,27,25,0.16);
+    --rule-strong: rgba(27,27,25,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 2314px; background: var(--paper); }
+  body { font-family: "Source Han Sans SC VF", "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .serif { font-family: "Source Han Serif CN", "Songti SC", "SimSun", serif; font-weight: 600; }
+  .caps { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2.2px; text-transform: uppercase; color: var(--ink-faint); }
+
+  .topbar { height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; border-bottom: 1px solid var(--rule); }
+  .topbar div { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 1.8px; color: var(--ink-faint); }
+
+  .masthead { height: 116px; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-block { display: flex; align-items: baseline; gap: 16px; }
+  .logotype { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 54px; letter-spacing: 7px; line-height: 1; }
+  .logo-suffix { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 2.6px; color: var(--ink-faint); }
+  .masthead-right { text-align: right; }
+  .masthead-right .t { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 17px; letter-spacing: 2px; }
+  .masthead-right .n { margin-top: 6px; font-size: 11px; letter-spacing: 1px; color: var(--ink-faint); }
+
+  .navbar { height: 52px; padding: 0 80px; display: flex; align-items: center; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+  .nav-items { display: flex; gap: 40px; }
+  .nav-items a { text-decoration: none; color: var(--ink); font-size: 13px; letter-spacing: 2px; }
+  .nav-items a.active { color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .nav-right { margin-left: auto; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 1.8px; color: var(--ink-faint); }
+
+  .page-head { padding: 52px 200px 0; display: flex; align-items: flex-end; justify-content: space-between; }
+  .kicker { display: flex; align-items: center; gap: 12px; }
+  .kicker .bar { width: 40px; height: 2px; background: var(--accent); }
+  .kicker .txt { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 2.2px; color: var(--accent); text-transform: uppercase; }
+  .page-head h1 { margin-top: 18px; font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 52px; letter-spacing: 4px; }
+  .page-dek { margin-top: 14px; width: 620px; font-size: 14px; line-height: 1.9; color: var(--ink-soft); }
+  .page-side { text-align: right; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; line-height: 2; letter-spacing: 1.6px; color: var(--ink-faint); }
+
+  .band { margin: 30px 200px 0; }
+  .band-img { width: 1040px; height: 300px; overflow: hidden; background: #EAE3D4; }
+  .band-img img { width: 1040px; height: 347px; object-fit: cover; display: block; margin-top: -36px; mix-blend-mode: multiply; }
+  .band-cap { margin-top: 11px; display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.6px; }
+  .band-cap .num { font-family: "Montserrat", sans-serif; font-weight: 400; letter-spacing: 1.6px; }
+
+  .entry { margin: 0 200px; padding: 34px 0 30px; border-bottom: 1px solid var(--rule); display: flex; gap: 56px; }
+  .entry-main { width: 420px; display: flex; gap: 22px; }
+  .entry-no { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 1.4px; color: var(--accent); padding-top: 6px; width: 30px; }
+  .entry-text h2 { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 30px; letter-spacing: 2px; }
+  .entry-text .en { margin-top: 6px; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2px; color: var(--ink-faint); }
+  .entry-text p { margin-top: 12px; font-size: 13px; line-height: 1.9; color: var(--ink-soft); }
+  .params { flex: 1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 44px; }
+  .param { padding: 10px 0; border-top: 1px solid var(--rule); }
+  .param .k { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 9.5px; letter-spacing: 1.8px; color: var(--ink-faint); text-transform: uppercase; }
+  .param .v { margin-top: 6px; font-size: 13px; line-height: 1.7; color: var(--ink-body); }
+
+  .table-wrap { margin: 44px 200px 0; }
+  .table-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+  .table-head h2 { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 26px; letter-spacing: 2px; }
+  .table-head .r { font-size: 11px; color: var(--ink-faint); letter-spacing: 1px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  th { text-align: left; padding: 13px 12px 11px 0; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 1.8px; color: var(--ink-faint); text-transform: uppercase; border-bottom: 1px solid var(--rule-strong); }
+  td { padding: 14px 12px 14px 0; font-size: 13px; line-height: 1.7; color: var(--ink-body); border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.first { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 15px; letter-spacing: 0.8px; }
+  td.bottleneck { color: var(--accent); }
+
+  .table-note { margin-top: 12px; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.5px; }
+
+  .sub-strip { margin: 46px 200px 0; background: var(--ink); color: #F1ECE1; padding: 28px 34px; display: flex; align-items: center; gap: 40px; }
+  .sub-strip .copy { flex: 1; }
+  .sub-strip .copy h3 { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 21px; letter-spacing: 1.4px; }
+  .sub-strip .copy p { margin-top: 7px; font-size: 12px; color: rgba(241,236,225,0.72); }
+  .sub-strip .form { display: flex; }
+  .sub-strip .form input { width: 240px; height: 44px; border: 1px solid rgba(241,236,225,0.45); background: transparent; color: #F1ECE1; padding: 0 14px; font-family: inherit; font-size: 12px; }
+  .sub-strip .form input::placeholder { color: rgba(241,236,225,0.6); }
+  .sub-strip .form button { height: 44px; padding: 0 20px; border: none; background: var(--accent); color: #FBF6EE; font-family: inherit; font-size: 12px; letter-spacing: 1px; }
+
+  .colophon { margin-top: 44px; padding: 30px 200px 0; border-top: 1px solid var(--rule); }
+  .colo-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .colo-left { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 28px; letter-spacing: 5px; }
+  .colo-right { text-align: right; font-size: 11px; line-height: 1.9; color: var(--ink-faint); letter-spacing: 0.6px; }
+  .reprint { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; gap: 16px; }
+  .reprint .k { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2px; color: var(--accent); white-space: nowrap; padding-top: 2px; }
+  .reprint .t { font-size: 11px; line-height: 1.9; color: var(--ink-faint); letter-spacing: 0.3px; }
+  a { color: inherit; }
+  .nav-back { color: var(--ink-soft); letter-spacing: 1px; text-decoration: none; }
+  .nav-items a:hover, .nav-back:hover, .colo-left:hover { color: var(--accent); }
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:1440px;height:2314px;">
+<main data-canvas-root style="width:1440px;height:2314px;">
+
+  <div class="topbar">
+    <div>ISSUE 001 · ATLAS OF MACHINES · COROBOT.COM</div>
+    <div>2026 / 11 / 17</div>
+  </div>
+
+  <header class="masthead">
+    <div class="logo-block">
+      <a class="logotype serif" href="/" style="text-decoration:none;color:inherit;">COROBOT</a>
+      <div class="logo-suffix">corobot.com</div>
+    </div>
+    <div class="masthead-right">
+      <div class="t serif">把 AI 带进物理世界</div>
+      <div class="n">第 001 期 · 机器人图鉴</div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-items">
+      <a href="/cover/">封面故事</a>
+      <a href="/latest/">最新资讯</a>
+      <a href="/#brief">每日快讯</a>
+      <a href="/atlas/" class="active">机器人图鉴</a>
+      <a href="/latest/">深度专题</a>
+    </div>
+    <div class="nav-right"><a class="nav-back" href="/">← 返回首页</a></div>
+  </nav>
+
+  <div class="page-head">
+    <div>
+      <div class="kicker"><span class="bar"></span><span class="txt">Atlas of Machines ｜ 图鉴</span></div>
+      <h1>机器人图鉴</h1>
+      <p class="page-dek">机器人不止一种形态。按“在哪动、怎么动”来分类，是理解这个行业最省力的入口：先看它受什么约束，再看它能干什么。</p>
+    </div>
+    <div class="page-side">FOUR FAMILIES<br>UPDATED 2026.11</div>
+  </div>
+
+  <div class="band">
+    <div class="band-img">
+      <img src="https://aka.doubaocdn.com/s/uGWQ7308z3" alt="四类机器人形态丝网印刷插画">
+    </div>
+    <div class="band-cap">
+      <span>从左至右：双足人形平台 · 固定式多轴协作机械臂 · 轮式移动机器人 · 四旋翼无人机</span>
+      <span class="num">FIG. 01</span>
+    </div>
+  </div>
+
+  <section class="entry" id="entry-1">
+    <div class="entry-main">
+      <div class="entry-no">01</div>
+      <div class="entry-text">
+        <h2>人形平台</h2>
+        <div class="en">HUMANOID ROBOT</div>
+        <p>双足行走、双臂操作，直接用人类已经建好的环境：楼梯、门把手、工位与工具。</p>
+      </div>
+    </div>
+    <div class="params">
+      <div class="param"><div class="k">Degrees of Freedom</div><div class="v">全身 30–50 个自由度，手部占比最高</div></div>
+      <div class="param"><div class="k">Workspace</div><div class="v">与人体同尺度的室内空间</div></div>
+      <div class="param"><div class="k">Typical Task</div><div class="v">装配辅助、巡检、导览、科研验证</div></div>
+      <div class="param"><div class="k">Bottleneck</div><div class="v">续航与成本，双足稳定性的工程验证</div></div>
+    </div>
+  </section>
+
+  <section class="entry" id="entry-2">
+    <div class="entry-main">
+      <div class="entry-no">02</div>
+      <div class="entry-text">
+        <h2>协作机械臂</h2>
+        <div class="en">COLLABORATIVE ARM</div>
+        <p>固定底座加多轴关节，与人共处同一工位。牺牲移动能力，换取精度、刚性与可重复性。</p>
+      </div>
+    </div>
+    <div class="params">
+      <div class="param"><div class="k">Degrees of Freedom</div><div class="v">常见 6–7 轴，可加外部第七轴扩展行程</div></div>
+      <div class="param"><div class="k">Reach</div><div class="v">工作半径约 0.5–1.8 米，按工位定制</div></div>
+      <div class="param"><div class="k">Typical Task</div><div class="v">上下料、装配、焊接、检测</div></div>
+      <div class="param"><div class="k">Bottleneck</div><div class="v">力控精度与换型成本，夹具与工艺强绑定</div></div>
+    </div>
+  </section>
+
+  <section class="entry" id="entry-3">
+    <div class="entry-main">
+      <div class="entry-no">03</div>
+      <div class="entry-text">
+        <h2>移动机器人</h2>
+        <div class="en">MOBILE ROBOT / AMR</div>
+        <p>轮式或履带底盘，把工作空间从工位扩展到整个仓库与厂区。难点从精度转向调度与导航。</p>
+      </div>
+    </div>
+    <div class="params">
+      <div class="param"><div class="k">Configuration</div><div class="v">底盘 2–3 自由度，常见含顶升或举升模组</div></div>
+      <div class="param"><div class="k">Workspace</div><div class="v">仓内平面为主，逐步扩展至室外园区</div></div>
+      <div class="param"><div class="k">Typical Task</div><div class="v">搬运、分拣、拣选、巡检</div></div>
+      <div class="param"><div class="k">Bottleneck</div><div class="v">多机调度与拥堵，地图维护与现场改造</div></div>
+    </div>
+  </section>
+
+  <section class="entry" id="entry-4">
+    <div class="entry-main">
+      <div class="entry-no">04</div>
+      <div class="entry-text">
+        <h2>无人机</h2>
+        <div class="en">UNMANNED AERIAL VEHICLE</div>
+        <p>空中作业平台，替代的不是手臂，而是“到场”这件事本身。巡检、测绘与应急最先落地。</p>
+      </div>
+    </div>
+    <div class="params">
+      <div class="param"><div class="k">Configuration</div><div class="v">4–8 旋翼为主，另有固定翼与复合构型</div></div>
+      <div class="param"><div class="k">Workspace</div><div class="v">低空空域，受空域规则与视距限制</div></div>
+      <div class="param"><div class="k">Typical Task</div><div class="v">电力巡检、测绘、物流、应急救援</div></div>
+      <div class="param"><div class="k">Bottleneck</div><div class="v">空域管理与安全责任划分，续航与载重</div></div>
+    </div>
+  </section>
+
+  <div class="table-wrap">
+    <div class="table-head">
+      <h2>四类载体对照</h2>
+      <div class="r">同一套观察维度，横向比较</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:150px;">Family</th>
+          <th style="width:120px;">进入方式</th>
+          <th style="width:180px;">空间尺度</th>
+          <th style="width:160px;">能力侧重</th>
+          <th>主要瓶颈</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="first">人形平台</td>
+          <td>双足移动</td>
+          <td>室内人际尺度</td>
+          <td>通用操作</td>
+          <td class="bottleneck">续航、成本、稳定性</td>
+        </tr>
+        <tr>
+          <td class="first">协作机械臂</td>
+          <td>固定工位</td>
+          <td>工作半径内</td>
+          <td>高精度重复</td>
+          <td class="bottleneck">力控、换型成本</td>
+        </tr>
+        <tr>
+          <td class="first">移动机器人</td>
+          <td>地面行驶</td>
+          <td>仓内与厂区</td>
+          <td>位移与调度</td>
+          <td class="bottleneck">多机拥堵、地图维护</td>
+        </tr>
+        <tr>
+          <td class="first">无人机</td>
+          <td>空中飞行</td>
+          <td>低空空域</td>
+          <td>快速到场</td>
+          <td class="bottleneck">空域规则、续航载重</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">参数为行业常见区间示意，用于建立分类直觉，不作为具体产品规格。</div>
+  </div>
+
+  <section class="sub-strip">
+    <div class="copy">
+      <h3 class="serif">图鉴会持续增补，订阅即可收到更新</h3>
+      <p>每新增一类载体或一组关键参数，都会在周报里说明改了什么。</p>
+    </div>
+    <div class="form">
+      <input type="email" placeholder="你的邮箱">
+      <button>订阅</button>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <div class="colo-row">
+      <a class="colo-left serif" href="/">COROBOT</a>
+      <div class="colo-right">第 001 期 · 2026 年 11 月 17 日 · 更新至 2026.11.18　·　出版：Corobot.com 编辑部<br>© 2026 Corobot.com　·　内容仅作信息传播，不构成投资建议</div>
+    </div>
+        <div class="reprint">
+      <div class="k">转载声明</div>
+      <div class="t">本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+    </div>
+    <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+  </footer>
+
+</main>
+</body>
+</html>

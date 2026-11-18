@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="390" data-canvas-height="3164" style="width:390px;height:3164px;">
+<head>
+<meta charset="UTF-8">
+<title>机器人不是某一种形状 · 手机版</title>
+<style>
+  @font-face { font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap; }
+  :root { --paper:#F4F0E8; --paper-deep:#EBE5D8; --ink:#1B1B19; --ink-soft:#5C574E;
+          --ink-faint:#8C877C; --accent:#B23A2A; --rule:rgba(27,27,25,0.16); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; width:390px; height:3164px; background:var(--paper);
+    font-family:"Source Han Sans SC VF","PingFang SC",sans-serif; color:var(--ink); }
+  main { width:390px; height:3164px; }
+  .serif { font-family:"Source Han Serif CN", serif; font-weight:600; }
+  .latin { font-family:"Montserrat", sans-serif; font-weight:400; }
+
+  .topbar { display:flex; justify-content:space-between; padding:9px 20px; border-bottom:1px solid var(--rule);
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .masthead { padding:16px 20px 12px; border-bottom:2px solid var(--ink); }
+  .masthead .row1 { display:flex; align-items:flex-end; justify-content:space-between; }
+  .logotype { font-size:30px; letter-spacing:4px; line-height:1; color:var(--ink); text-decoration:none; }
+  .masthead .suffix { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); padding-bottom:3px; }
+  .masthead .slogan { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline; }
+  .masthead .slogan .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:12px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .masthead .slogan .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.2px; color:var(--ink-faint); }
+
+  .nav { display:flex; flex-wrap:wrap; gap:12px; padding:10px 20px; border-bottom:1px solid var(--rule);
+    font-size:11.5px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .nav a { text-decoration:none; color:inherit; }
+  .nav a.on { color:var(--accent); }
+
+  .kicker { display:flex; align-items:center; gap:8px; margin-top:22px; }
+  .kicker .bar { width:22px; height:2px; background:var(--accent); }
+  .kicker .txt { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.8px; color:var(--accent); }
+
+  h1.cover.sm { font-size:26px; }
+  h1.cover.xxs { font-size:21px; }
+  h1.cover.xs { font-size:23px; }
+  h1.cover { margin:12px 20px 0; font-family:"Source Han Serif CN",serif; font-weight:600;
+    font-size:29px; line-height:1.34; letter-spacing:0.8px; color:var(--ink); }
+  .deck { text-wrap: pretty; margin:12px 20px 0; font-size:13.5px; line-height:1.75; color:var(--ink-soft); letter-spacing:0.2px; }
+  .byline { margin:14px 20px 0; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .byline .tag { border:1px solid var(--rule); padding:2px 6px; color:var(--ink-soft); letter-spacing:0.8px; }
+  .readlink { display:inline-block; margin:12px 20px 0; font-size:12px; color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:2px; letter-spacing:0.6px; }
+
+  .sec-label { margin:28px 20px 0; padding-bottom:8px; border-bottom:1px solid var(--ink);
+    display:flex; justify-content:space-between; align-items:baseline; }
+  .sec-label .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1px; }
+  .sec-label .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.6px; color:var(--ink-faint); }
+
+  .card { display:block; margin:0 20px; padding:16px 0 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .card .meta { display:flex; gap:8px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .card .meta .idx { color:var(--accent); }
+  .card h3 { text-wrap: pretty; margin:8px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; line-height:1.5; letter-spacing:0.8px; color:var(--ink); }
+  .card p { text-wrap: pretty; margin:8px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .card .time { margin-top:9px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .briefrow { display:flex; gap:10px; align-items:baseline; padding:11px 20px; border-bottom:1px solid rgba(27,27,25,0.08); text-decoration:none; color:inherit; }
+  .briefrow .t { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1px; color:var(--ink-faint); width:30px; flex:0 0 30px; }
+  .briefrow .cat { font-size:9.5px; color:var(--accent); letter-spacing:0.6px; flex:0 0 54px; }
+  .briefrow .h { text-wrap: pretty; font-size:12.5px; line-height:1.6; color:var(--ink); }
+
+  .chips { display:flex; flex-wrap:wrap; gap:7px; padding:14px 20px 0; }
+  .chip { display:inline-block; padding:5px 9px; border:1px solid var(--rule); font-size:10.5px; letter-spacing:0.5px; color:var(--ink-soft); text-decoration:none; }
+  .chip.on { background:var(--ink); color:#F1ECE1; border-color:var(--ink); }
+
+  .row { display:block; padding:16px 20px 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .row .top { display:flex; gap:9px; align-items:baseline; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .row .top .idx { color:var(--accent); font-size:9px; }
+  .row h3 { text-wrap: pretty; margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:18px; line-height:1.5; letter-spacing:0.6px; }
+  .row p { text-wrap: pretty; margin:7px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .row .foot { margin-top:8px; font-size:9.5px; letter-spacing:0.8px; color:var(--ink-faint); }
+
+  .monthband { display:flex; align-items:baseline; gap:10px; margin:20px 20px 0; padding-bottom:9px; border-bottom:1px solid var(--ink); }
+  .monthband .m { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1.2px; }
+  .monthband .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); }
+  .monthband .n { margin-left:auto; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .body { padding:0 20px; }
+  .body .lead { text-wrap: pretty; margin:20px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .body .lead { border-left:2px solid var(--accent); padding-left:14px; }
+  .body h2 { margin:26px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.8px; }
+  .body h2 .idx { color:var(--accent); font-family:"Montserrat",sans-serif; font-weight:400; font-size:10px; letter-spacing:1.4px; margin-right:8px; }
+  .body p { text-wrap: pretty; margin:12px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .quote { margin:22px 0 0; padding:14px 0 14px 16px; border-left:2px solid var(--ink); }
+  .quote p { text-wrap: pretty; margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:16px; line-height:1.85; letter-spacing:0.4px; color:var(--ink); }
+  .quote .who { margin-top:10px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.3px; color:var(--ink-faint); }
+  .dataline { margin:22px 0 0; border-top:1px solid var(--ink); }
+  .dl-row { display:flex; gap:8px; padding:10px 0; border-bottom:1px solid rgba(27,27,25,0.08); }
+  .dl-row .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; color:var(--accent); width:20px; flex:0 0 20px; }
+  .dl-row .k { font-size:11.5px; color:var(--ink); width:76px; flex:0 0 76px; line-height:1.55; }
+  .dl-row .v { text-wrap: pretty; font-size:11.5px; color:var(--ink-soft); line-height:1.65; flex:1; }
+  .source-note { text-wrap: pretty; margin:22px 0 0; padding:14px 16px; background:var(--paper-deep); font-size:11px; line-height:1.75; color:var(--ink-soft); }
+  .kw { margin:18px 20px 0; display:flex; flex-wrap:wrap; gap:6px; }
+  .kw .k { font-size:10px; padding:3px 7px; border:1px solid var(--rule); color:var(--ink-soft); }
+  .pick { display:block; margin:0 20px; padding:14px 0; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .pick .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.4px; color:var(--accent); }
+  .pick h3 { margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.6px; }
+
+  .reprint-line { margin:12px 0 0; font-size:9.5px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; text-wrap:pretty; }
+  .chan-note { margin:22px 20px 0; padding:14px 16px; background:var(--paper-deep); }
+  .chan-note .caps2 { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.6px; color:var(--ink-faint); }
+  .chan-note p { margin:8px 0 0; font-size:12px; line-height:1.75; color:var(--ink-soft); }
+
+  .sub { margin:26px 20px 0; background:var(--ink); color:#F1ECE1; padding:20px; }
+  .sub h3 { margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; letter-spacing:1.2px; }
+  .sub p { text-wrap: pretty; margin:8px 0 0; font-size:11.5px; line-height:1.7; color:rgba(241,236,225,0.72); }
+  .sub .form { margin-top:14px; display:flex; }
+  .sub .form input { flex:1; height:40px; border:1px solid rgba(241,236,225,0.4); background:transparent; color:#F1ECE1; padding:0 10px; font-family:inherit; font-size:11.5px; }
+  .sub .form button { height:40px; padding:0 16px; border:none; background:var(--accent); color:#FBF6EE; font-family:inherit; font-size:11.5px; letter-spacing:1px; }
+
+  .foot { margin-top:26px; padding:18px 20px 0; border-top:2px solid var(--ink); }
+  .foot .logo { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; letter-spacing:3px; color:var(--ink); }
+  .foot .cols { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .foot .legal { margin-top:12px; font-size:9px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; }
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:390px;height:3164px;">
+<main data-canvas-root style="width:390px;height:3164px;">
+  <div class="topbar"><div>ARTICLE · 具身智能</div><div>2026 / 11 / 17</div></div>
+  <header class="masthead">
+    <div class="row1"><a class="logotype serif" href="/">COROBOT</a><span class="suffix">corobot.com</span></div>
+    <div class="slogan"><span class="t">把 AI 带进物理世界</span><span class="n">第 001 期 · 每日更新</span></div>
+  </header>
+  <nav class="nav">
+    <a href="mobile-article.html">封面故事</a><a href="/latest/" class="">最新资讯</a>
+    <a href="/">每日快讯</a><a href="/latest/" class="">频道</a>
+    <a href="/latest/">全部</a>
+  </nav>
+  <div class="kicker" style="margin-left:20px;"><span class="bar"></span><span class="txt">COVER STORY ｜ 封面故事</span></div>
+  <h1 class="cover xs">机器人不是某一种形状，<br>而是 AI 触碰世界的方式</h1>
+  <p class="deck">我们把机器人理解得足够宽：会走路的双足平台、守在工位上的机械臂、在仓库里跑的轮式底盘、悬在空中的无人机，甚至一枚灵巧手、一个力控关节。它们共同回答同一个问题——模型懂了之后，谁来动手。</p>
+  <div class="byline"><span>文 / Corobot 编辑部</span><span>2026.11.17</span><span>阅读 8 分钟</span><span class="tag">具身智能</span></div>
+  <div class="body">
+    <p class="lead">讨论机器人时，最容易滑进的误区是先想形状。人形、四足、轮式、机械臂——这些词描述了外观，却解释不了这一轮热潮真正的来源。真正的变化发生在看不见的地方：模型开始具备把语义转成动作的能力，而机器人只是这套能力终于有了身体。</p>
+    <p>如果按形状分类，机器人行业会被切成互相听不懂的碎片；如果按“是否把 AI 的决策落到物理世界”分类，这些碎片立刻连成一条线。从这个角度看，一台焊接机械臂和一台双足平台做的是同一件事，只是自由度、工作空间与环境复杂度不同。</p>
+    <h2><span class="idx">01</span>三种进入世界的方式</h2>
+    <p>第一种是固定式的。机械臂钉在工位上，用精确的重复换取稳定产出。它不需要理解整座工厂，只需要理解眼前这几十厘米。第二种是移动式的。轮式底盘或四足平台把工作空间扩展到仓库、厂区与户外，难点从精度转向导航、定位与动态避障。</p>
+    <p>第三种是空中与远程的。无人机、水下机器人、管道机器人进入人类不便到达的空间，它们替代的不是手臂，而是“到场”这件事本身。</p>
+    <div class="quote"><p>“形状是环境的函数，不是技术的目的。”<br>“机器人长成什么样，取决于它要在什么样的世界里干活。”</p><div class="who">Corobot Editorial Note</div></div>
+    <h2><span class="idx">02</span>为什么形状不重要</h2>
+    <p>人类世界的门把手、楼梯、货架与工位，本来就是按人体尺寸设计的。人形平台之所以出现，不是审美选择，而是一种“免改造环境”的妥协：与其把整个工厂改造一遍，不如让机器适应现成的世界。</p>
+    <p>反过来，当环境可以被重新设计，形状就自由了。仓储可以把货架降到合适高度，农业可以把垄距标准化，于是专用形态往往比通用形态更高效。形状之争的本质，是改造环境与改造机器之间，谁的成本更低。</p>
+    <h2><span class="idx">03</span>真正稀缺的是数据与试错</h2>
+    <p>模型在文本与图像里见过足够多的世界，但在物理世界里，每一条经验都要靠真实的动作换回来。抓取失败一次，就是一次数据；一次碰撞，就是一次代价。这也是为什么行业反复强调仿真、遥操作与数据采集——它们在用更低的成本购买“试错次数”。</p>
+    <p>于是竞争的焦点从“能不能做出本体”转向“能不能持续制造有效经验”。本体可以被复制，产线可以被扩产，但一套能不断积累、迁移、复用的动作数据体系，很难被短期复制。</p>
+    <div class="dataline"><div class="dl-row"><span class="n">01</span><span class="k">本体与形态</span><span class="v">决定能进什么环境、能做什么动作，是能力上限的物理边界。</span></div><div class="dl-row"><span class="n">02</span><span class="k">感知与决策</span><span class="v">决定动作是否可靠，是把模型能力翻译成毫米级精度的中间层。</span></div><div class="dl-row"><span class="n">03</span><span class="k">数据与试错</span><span class="v">决定进化速度，是长期竞争中最难被复制的部分。</span></div></div>
+    <p>所以当我们说“机器人在改变世界”，说的并不是某一种形态的胜利。真正发生的是：AI 第一次拥有了可以犯错、可以修正、可以在物理世界里积累经验的身体。身体长什么样，反而是最不重要的那件事。</p>
+    <div class="source-note">本文为 Corobot 第 001 期封面故事，属编辑部观点文章，不含具体企业与产品数据。涉及的分类方式为本刊编辑部整理的观察框架，欢迎讨论与指正。</div>
+  </div>
+  <div class="reprint-line">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+  <div class="sec-label"><span class="t">接着读</span><span class="e">NEXT</span></div>
+  <a class="pick" href="mobile-a-unitree-wang.html"><div class="e">HUMANOID</div><h3>王兴兴说最棘手的是泛化，<br>却把时间表押在明年</h3></a>
+  <a class="pick" href="mobile-a-changying-8.html"><div class="e">UAV</div><h3>3.5 吨货、3000 公里，<br>无人机开始干重卡的活</h3></a>
+  <section class="sub">
+    <h3>每周一封周报</h3>
+    <p>只留技术要点与出处，不发通稿。</p>
+    <div class="form"><input type="email" placeholder="你的邮箱"><button>订阅</button></div>
+  </section>
+  <div class="foot">
+    <a class="logo serif" href="/" style="display:block;text-decoration:none;color:inherit;">COROBOT</a>
+    <div class="cols"><span>第 001 期 · 2026 年 11 月 17 日 · 更新至 2026.11.18</span><span>COROBOT.COM</span></div>
+    <div class="legal">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接；不转载全文，不替代原报道。</div>
+  </div>
+  <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="390" data-canvas-height="2427" style="width:390px;height:2427px;">
+<head>
+<meta charset="UTF-8">
+<title>两天挖出 28 个零日漏洞，机器人安 · 手机版</title>
+<style>
+  @font-face { font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap; }
+  :root { --paper:#F4F0E8; --paper-deep:#EBE5D8; --ink:#1B1B19; --ink-soft:#5C574E;
+          --ink-faint:#8C877C; --accent:#B23A2A; --rule:rgba(27,27,25,0.16); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; width:390px; height:2427px; background:var(--paper);
+    font-family:"Source Han Sans SC VF","PingFang SC",sans-serif; color:var(--ink); }
+  main { width:390px; height:2427px; }
+  .serif { font-family:"Source Han Serif CN", serif; font-weight:600; }
+  .latin { font-family:"Montserrat", sans-serif; font-weight:400; }
+
+  .topbar { display:flex; justify-content:space-between; padding:9px 20px; border-bottom:1px solid var(--rule);
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .masthead { padding:16px 20px 12px; border-bottom:2px solid var(--ink); }
+  .masthead .row1 { display:flex; align-items:flex-end; justify-content:space-between; }
+  .logotype { font-size:30px; letter-spacing:4px; line-height:1; color:var(--ink); text-decoration:none; }
+  .masthead .suffix { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); padding-bottom:3px; }
+  .masthead .slogan { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline; }
+  .masthead .slogan .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:12px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .masthead .slogan .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.2px; color:var(--ink-faint); }
+
+  .nav { display:flex; flex-wrap:wrap; gap:12px; padding:10px 20px; border-bottom:1px solid var(--rule);
+    font-size:11.5px; letter-spacing:0.6px; color:var(--ink-soft); }
+  .nav a { text-decoration:none; color:inherit; }
+  .nav a.on { color:var(--accent); }
+
+  .kicker { display:flex; align-items:center; gap:8px; margin-top:22px; }
+  .kicker .bar { width:22px; height:2px; background:var(--accent); }
+  .kicker .txt { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.8px; color:var(--accent); }
+
+  h1.cover.sm { font-size:26px; }
+  h1.cover.xxs { font-size:21px; }
+  h1.cover.xs { font-size:23px; }
+  h1.cover { margin:12px 20px 0; font-family:"Source Han Serif CN",serif; font-weight:600;
+    font-size:29px; line-height:1.34; letter-spacing:0.8px; color:var(--ink); }
+  .deck { text-wrap: pretty; margin:12px 20px 0; font-size:13.5px; line-height:1.75; color:var(--ink-soft); letter-spacing:0.2px; }
+  .byline { margin:14px 20px 0; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .byline .tag { border:1px solid var(--rule); padding:2px 6px; color:var(--ink-soft); letter-spacing:0.8px; }
+  .readlink { display:inline-block; margin:12px 20px 0; font-size:12px; color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:2px; letter-spacing:0.6px; }
+
+  .sec-label { margin:28px 20px 0; padding-bottom:8px; border-bottom:1px solid var(--ink);
+    display:flex; justify-content:space-between; align-items:baseline; }
+  .sec-label .t { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1px; }
+  .sec-label .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.6px; color:var(--ink-faint); }
+
+  .card { display:block; margin:0 20px; padding:16px 0 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .card .meta { display:flex; gap:8px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .card .meta .idx { color:var(--accent); }
+  .card h3 { text-wrap: pretty; margin:8px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; line-height:1.5; letter-spacing:0.8px; color:var(--ink); }
+  .card p { text-wrap: pretty; margin:8px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .card .time { margin-top:9px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .briefrow { display:flex; gap:10px; align-items:baseline; padding:11px 20px; border-bottom:1px solid rgba(27,27,25,0.08); text-decoration:none; color:inherit; }
+  .briefrow .t { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1px; color:var(--ink-faint); width:30px; flex:0 0 30px; }
+  .briefrow .cat { font-size:9.5px; color:var(--accent); letter-spacing:0.6px; flex:0 0 54px; }
+  .briefrow .h { text-wrap: pretty; font-size:12.5px; line-height:1.6; color:var(--ink); }
+
+  .chips { display:flex; flex-wrap:wrap; gap:7px; padding:14px 20px 0; }
+  .chip { display:inline-block; padding:5px 9px; border:1px solid var(--rule); font-size:10.5px; letter-spacing:0.5px; color:var(--ink-soft); text-decoration:none; }
+  .chip.on { background:var(--ink); color:#F1ECE1; border-color:var(--ink); }
+
+  .row { display:block; padding:16px 20px 14px; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .row .top { display:flex; gap:9px; align-items:baseline; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.2px; color:var(--ink-faint); }
+  .row .top .idx { color:var(--accent); font-size:9px; }
+  .row h3 { text-wrap: pretty; margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:18px; line-height:1.5; letter-spacing:0.6px; }
+  .row p { text-wrap: pretty; margin:7px 0 0; font-size:12.5px; line-height:1.7; color:var(--ink-soft); }
+  .row .foot { margin-top:8px; font-size:9.5px; letter-spacing:0.8px; color:var(--ink-faint); }
+
+  .monthband { display:flex; align-items:baseline; gap:10px; margin:20px 20px 0; padding-bottom:9px; border-bottom:1px solid var(--ink); }
+  .monthband .m { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:15px; letter-spacing:1.2px; }
+  .monthband .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.4px; color:var(--ink-faint); }
+  .monthband .n { margin-left:auto; font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.1px; color:var(--ink-faint); }
+
+  .body { padding:0 20px; }
+  .body .lead { text-wrap: pretty; margin:20px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .body .lead { border-left:2px solid var(--accent); padding-left:14px; }
+  .body h2 { margin:26px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.8px; }
+  .body h2 .idx { color:var(--accent); font-family:"Montserrat",sans-serif; font-weight:400; font-size:10px; letter-spacing:1.4px; margin-right:8px; }
+  .body p { text-wrap: pretty; margin:12px 0 0; font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:0.2px; }
+  .quote { margin:22px 0 0; padding:14px 0 14px 16px; border-left:2px solid var(--ink); }
+  .quote p { text-wrap: pretty; margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:16px; line-height:1.85; letter-spacing:0.4px; color:var(--ink); }
+  .quote .who { margin-top:10px; font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.3px; color:var(--ink-faint); }
+  .dataline { margin:22px 0 0; border-top:1px solid var(--ink); }
+  .dl-row { display:flex; gap:8px; padding:10px 0; border-bottom:1px solid rgba(27,27,25,0.08); }
+  .dl-row .n { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; color:var(--accent); width:20px; flex:0 0 20px; }
+  .dl-row .k { font-size:11.5px; color:var(--ink); width:76px; flex:0 0 76px; line-height:1.55; }
+  .dl-row .v { text-wrap: pretty; font-size:11.5px; color:var(--ink-soft); line-height:1.65; flex:1; }
+  .source-note { text-wrap: pretty; margin:22px 0 0; padding:14px 16px; background:var(--paper-deep); font-size:11px; line-height:1.75; color:var(--ink-soft); }
+  .kw { margin:18px 20px 0; display:flex; flex-wrap:wrap; gap:6px; }
+  .kw .k { font-size:10px; padding:3px 7px; border:1px solid var(--rule); color:var(--ink-soft); }
+  .pick { display:block; margin:0 20px; padding:14px 0; border-bottom:1px solid var(--rule); text-decoration:none; color:inherit; }
+  .pick .e { font-family:"Montserrat",sans-serif; font-weight:400; font-size:8.5px; letter-spacing:1.4px; color:var(--accent); }
+  .pick h3 { margin:7px 0 0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; line-height:1.5; letter-spacing:0.6px; }
+
+  .reprint-line { margin:12px 0 0; font-size:9.5px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; text-wrap:pretty; }
+  .chan-note { margin:22px 20px 0; padding:14px 16px; background:var(--paper-deep); }
+  .chan-note .caps2 { font-family:"Montserrat",sans-serif; font-weight:400; font-size:9px; letter-spacing:1.6px; color:var(--ink-faint); }
+  .chan-note p { margin:8px 0 0; font-size:12px; line-height:1.75; color:var(--ink-soft); }
+
+  .sub { margin:26px 20px 0; background:var(--ink); color:#F1ECE1; padding:20px; }
+  .sub h3 { margin:0; font-family:"Source Han Serif CN",serif; font-weight:600; font-size:17px; letter-spacing:1.2px; }
+  .sub p { text-wrap: pretty; margin:8px 0 0; font-size:11.5px; line-height:1.7; color:rgba(241,236,225,0.72); }
+  .sub .form { margin-top:14px; display:flex; }
+  .sub .form input { flex:1; height:40px; border:1px solid rgba(241,236,225,0.4); background:transparent; color:#F1ECE1; padding:0 10px; font-family:inherit; font-size:11.5px; }
+  .sub .form button { height:40px; padding:0 16px; border:none; background:var(--accent); color:#FBF6EE; font-family:inherit; font-size:11.5px; letter-spacing:1px; }
+
+  .foot { margin-top:26px; padding:18px 20px 0; border-top:2px solid var(--ink); }
+  .foot .logo { font-family:"Source Han Serif CN",serif; font-weight:600; font-size:19px; letter-spacing:3px; color:var(--ink); }
+  .foot .cols { margin-top:10px; display:flex; justify-content:space-between; align-items:baseline;
+    font-family:"Montserrat",sans-serif; font-weight:400; font-size:8px; letter-spacing:1.1px; color:var(--ink-faint); }
+  .foot .legal { margin-top:12px; font-size:9px; line-height:1.7; color:var(--ink-faint); letter-spacing:0.2px; }
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:390px;height:2427px;">
+<main data-canvas-root style="width:390px;height:2427px;">
+  <div class="topbar"><div>ARTICLE · 产业与政策</div><div>2026 / 11 / 17</div></div>
+  <header class="masthead">
+    <div class="row1"><a class="logotype serif" href="/">COROBOT</a><span class="suffix">corobot.com</span></div>
+    <div class="slogan"><span class="t">把 AI 带进物理世界</span><span class="n">第 001 期 · 每日更新</span></div>
+  </header>
+  <nav class="nav">
+    <a href="mobile-article.html">封面故事</a><a href="/latest/" class="">最新资讯</a>
+    <a href="/">每日快讯</a><a href="/latest/" class="">频道</a>
+    <a href="/latest/">全部</a>
+  </nav>
+  <div class="kicker" style="margin-left:20px;"><span class="bar"></span><span class="txt">RISK NOTE ｜ 产业与政策</span></div>
+  <h1 class="cover xs">两天挖出 28 个零日漏洞，<br>机器人安全还在追赶</h1>
+  <p class="deck">一家车联网安全公司用 AI 辅助研究，在不到两天里找出 28 个零日漏洞，涉及 Google、NVIDIA、Meta 等维护的机器人相关项目；其中 75% 落在开发、训练、仿真与验证环节。</p>
+  <div class="byline"><span>文 / Corobot 编辑部</span><span>2026.11.16</span><span>阅读 5 分钟</span><span class="tag">产业与政策</span></div>
+  <div class="body">
+    <p class="lead">漏洞的数量不是最值得注意的，位置才是。75% 的发现集中在机器人还没上现场之前的环节——也就是说，问题出在「你以为已经验证过」的那一段。</p>
+    <h2><span class="idx">01</span>越靠前的环节，越像地基</h2>
+    <p>按这家公司给出的场景：团队下载一个预训练模型做适配，恶意文件在加载时就能拿到训练系统的权限，改训练数据或改模型本身。被改过的模型在常规测试里表现正常，却会在部署后对某个特定物体、场景或指令出错。</p>
+    <p>仿真是第二处。导入被做过手脚的场景或机器人模型，攻击者可以改仿真中的传感器读数、物理条件或测试结论，让一台本该被判不合格的机器人拿着「通过」的证据被批准上线。</p>
+    <h2><span class="idx">02</span>被污染的不是代码，是证据</h2>
+    <p>部署与运行阶段的例子更直接：他们演示了让一台机器人的远程急停指令失效。急停是所有安全论证的最后一道手动兜底，它失效，前面所有测试结论都失去意义。</p>
+    <p>所以这类漏洞真正攻击的是安全决策所依赖的信息——模型、仿真结论、监控画面与指令链路。它不一定要让机器人做错动作，只需要让操作者看不见、停不下。</p>
+    <h2><span class="idx">03</span>补丁发出来，还不算结束</h2>
+    <p>软件维护方发出补丁之后，使用方仍要自己确认三件事：哪些系统用到了这个组件（训练机、仿真环境、在役机器人）、这个漏洞可能改掉什么（模型、测试结果、操作可见性、运动）、以及装上补丁后原有行为是否仍然成立。</p>
+    <p>原文也提醒，早先那次通过的测试只能算证据之一；新发现的漏洞可能恰好落在它没覆盖的条件上。</p>
+    <div class="quote"><p>它不一定要让机器人做错动作，<br>只需要让你看不见、停不下。</p><div class="who">Corobot Editorial Note</div></div>
+    <div class="source-note">透明说明：该原文标注为 VicOne 赞助内容（Sponsored Article），28 个发现由 VicOne 自行披露，部分尚无 CVE 编号，数量可能随厂商与漏洞管理机构复核而变化。本文仅整理其方法与披露口径，不构成对结论的独立验证。</div>
+  </div>
+  <div class="reprint-line">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+  <div class="sec-label"><span class="t">接着读</span><span class="e">NEXT</span></div>
+  <a class="pick" href="mobile-a-telesurgery-stroke.html"><div class="e">MED ROBOTICS</div><h3>让机器人做取栓手术，<br>卡住的不是刀，是网络</h3></a>
+  <a class="pick" href="mobile-a-lingbo-challenge.html"><div class="e">EMBODIED AI</div><h3>48 小时真机赛，<br>冠军赢在把题做小</h3></a>
+  <section class="sub">
+    <h3>每周一封周报</h3>
+    <p>只留技术要点与出处，不发通稿。</p>
+    <div class="form"><input type="email" placeholder="你的邮箱"><button>订阅</button></div>
+  </section>
+  <div class="foot">
+    <a class="logo serif" href="/" style="display:block;text-decoration:none;color:inherit;">COROBOT</a>
+    <div class="cols"><span>第 001 期 · 2026 年 11 月 17 日 · 更新至 2026.11.18</span><span>COROBOT.COM</span></div>
+    <div class="legal">转载声明：本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接；不转载全文，不替代原报道。</div>
+  </div>
+  <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+</main>
+</body>
+</html>

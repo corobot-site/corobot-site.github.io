@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# 旧固定画布页与新站内容重复，不索引；但仍可正常访问
+Disallow: /legacy/article-
+Disallow: /legacy/channel-
+Disallow: /legacy/mobile-
+
+Sitemap: https://corobot.com/sitemap-index.xml

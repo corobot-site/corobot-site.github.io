@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-canvas-width="1440" data-canvas-height="1604" style="width:1440px;height:1604px;">
+<head>
+<meta charset="UTF-8">
+<title>核心零部件 ｜ Corobot</title>
+<style>
+  @font-face {
+    font-family: "Source Han Serif CN";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-serif-cn/source-han-serif-cn-semi-bold.otf") format("opentype");
+    font-weight: 600; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Source Han Sans SC VF";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/source-han-sans-sc-vf/source-han-sans-sc-vf.otf") format("opentype");
+    font-weight: 250 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-regular.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/infinite-canvas/fonts/v1/montserrat/montserrat-bold.ttf") format("truetype");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --paper: #F4F0E8; --paper-deep: #EBE5D8; --ink: #1B1B19; --ink-body: #2A2823;
+    --ink-soft: #5C574E; --ink-faint: #8C877C; --accent: #B23A2A; --rule: rgba(27,27,25,0.16);
+    --rule-strong: rgba(27,27,25,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1440px; height: 1604px; background: var(--paper); }
+  body { font-family: "Source Han Sans SC VF", "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .serif { font-family: "Source Han Serif CN", "Songti SC", "SimSun", serif; font-weight: 600; }
+  .caps { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 2.6px; text-transform: uppercase; color: var(--ink-faint); }
+
+  .topbar { height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; border-bottom: 1px solid var(--rule); }
+  .topbar div { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 1.8px; color: var(--ink-faint); }
+
+  .masthead { height: 116px; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-block { display: flex; align-items: baseline; gap: 16px; }
+  .logotype { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 54px; letter-spacing: 7px; line-height: 1; }
+  .logo-suffix { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 2.6px; color: var(--ink-faint); }
+  .masthead-right { text-align: right; }
+  .masthead-right .t { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 17px; letter-spacing: 2px; }
+  .masthead-right .n { margin-top: 6px; font-size: 11px; letter-spacing: 1px; color: var(--ink-faint); }
+
+  .navbar { height: 52px; padding: 0 80px; display: flex; align-items: center; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+  .nav-items { display: flex; gap: 40px; }
+  .nav-items a { text-decoration: none; color: var(--ink); font-size: 13px; letter-spacing: 2px; }
+  .nav-items a.active { color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .nav-right { margin-left: auto; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 1.8px; color: var(--ink-faint); }
+
+  /* 页头 */
+  .page-head { padding: 54px 80px 0; display: flex; align-items: flex-end; justify-content: space-between; }
+  .kicker { display: flex; align-items: center; gap: 12px; }
+  .kicker .bar { width: 40px; height: 2px; background: var(--accent); }
+  .kicker .txt { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 2.2px; color: var(--accent); text-transform: uppercase; }
+  .page-head h1 { margin-top: 18px; font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 54px; letter-spacing: 4px; }
+  .page-dek { margin-top: 12px; font-size: 14px; color: var(--ink-soft); letter-spacing: 0.4px; }
+  .page-count { text-align: right; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 1.6px; color: var(--ink-faint); }
+
+  /* 筛选条 */
+  .filters { margin: 30px 80px 0; height: 58px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 10px; }
+  .chip { padding: 6px 14px; border: 1px solid var(--rule-strong); font-size: 12px; letter-spacing: 1px; color: var(--ink-soft); }
+  .chip.on { background: var(--ink); color: #F4F0E8; border-color: var(--ink); }
+  .search { margin-left: auto; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--rule-strong); padding-bottom: 6px; width: 220px; }
+  .search .ico { width: 14px; height: 14px; }
+  .search span { font-size: 12px; letter-spacing: 1px; color: var(--ink-faint); }
+
+  /* 主体 */
+  .layout { margin: 0 80px; display: flex; justify-content: space-between; gap: 64px; }
+  .list-col { width: 760px; }
+  .side-col { width: 272px; padding-top: 44px; }
+
+  .month-band { margin-top: 40px; display: flex; align-items: baseline; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--rule-strong); }
+  .month-band .m { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 22px; letter-spacing: 2px; }
+  .month-band .e { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2px; color: var(--ink-faint); }
+  .month-band .n { margin-left: auto; font-size: 11px; color: var(--ink-faint); letter-spacing: 1px; }
+
+  .row { display: flex; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+  .row .idx { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 1.6px; color: var(--ink-faint); width: 34px; padding-top: 4px; }
+  .row .body { flex: 1; }
+  .row .meta { display: flex; align-items: center; gap: 12px; font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 1.6px; color: var(--accent); }
+  .row .meta .date { color: var(--ink-faint); letter-spacing: 1.2px; }
+  .row h3 { margin-top: 10px; font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 23px; line-height: 1.5; letter-spacing: 0.6px; }
+  .row p { margin-top: 9px; font-size: 13px; line-height: 1.85; color: var(--ink-soft); }
+  .row .foot { margin-top: 12px; font-size: 11px; letter-spacing: 1px; color: var(--ink-faint); }
+
+  .more-btn { margin: 40px 0 0; height: 52px; border: 1px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 13px; letter-spacing: 2px; }
+  .note { margin-top: 14px; text-align: center; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.6px; }
+
+  /* 侧栏 */
+  .side-card { background: var(--paper-deep); padding: 24px 22px; }
+  .side-card .h { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 18px; letter-spacing: 1.4px; }
+  .side-card p { margin-top: 10px; font-size: 12px; line-height: 1.8; color: var(--ink-soft); }
+  .side-card input { margin-top: 14px; width: 100%; height: 40px; border: 1px solid var(--rule-strong); background: transparent; padding: 0 12px; font-family: inherit; font-size: 12px; color: var(--ink); }
+  .side-card input::placeholder { color: var(--ink-faint); }
+  .side-card button { margin-top: 10px; width: 100%; height: 40px; border: none; background: var(--accent); color: #FBF6EE; font-family: inherit; font-size: 12px; letter-spacing: 1.4px; }
+
+  .side-block { margin-top: 34px; }
+  .side-block .s-t { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2.2px; color: var(--ink-faint); padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+  .tag-list { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag-list span { padding: 5px 10px; border: 1px solid var(--rule); font-size: 12px; color: var(--ink-soft); }
+  .arch-row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dotted rgba(27,27,25,0.22); font-size: 12px; color: var(--ink-soft); }
+  .arch-row .c { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; color: var(--ink-faint); }
+
+  /* 订阅条 */
+  .sub-strip { margin: 56px 80px 0; background: var(--ink); color: #F1ECE1; padding: 28px 34px; display: flex; align-items: center; gap: 40px; }
+  .sub-strip .copy { flex: 1; }
+  .sub-strip .copy h3 { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 21px; letter-spacing: 1.4px; }
+  .sub-strip .copy p { margin-top: 7px; font-size: 12px; color: rgba(241,236,225,0.72); }
+  .sub-strip .form { display: flex; }
+  .sub-strip .form input { width: 240px; height: 44px; border: 1px solid rgba(241,236,225,0.45); background: transparent; color: #F1ECE1; padding: 0 14px; font-family: inherit; font-size: 12px; }
+  .sub-strip .form input::placeholder { color: rgba(241,236,225,0.6); }
+  .sub-strip .form button { height: 44px; padding: 0 20px; border: none; background: var(--accent); color: #FBF6EE; font-family: inherit; font-size: 12px; letter-spacing: 1px; }
+
+  .colophon { margin-top: 44px; padding: 30px 80px 0; border-top: 1px solid var(--rule); }
+  .colo-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .colo-left { font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 28px; letter-spacing: 5px; }
+  .colo-right { text-align: right; font-size: 11px; line-height: 1.9; color: var(--ink-faint); letter-spacing: 0.6px; }
+  .reprint { margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; gap: 16px; }
+  .reprint .k { font-family: "Montserrat", sans-serif; font-weight: 400; font-size: 10px; letter-spacing: 2px; color: var(--accent); white-space: nowrap; padding-top: 2px; }
+  .reprint .t { font-size: 11px; line-height: 1.9; color: var(--ink-faint); letter-spacing: 0.3px; }
+  a { color: inherit; }
+  .nav-back { color: var(--ink-soft); letter-spacing: 1px; text-decoration: none; }
+  .pick-link { display: block; text-decoration: none; color: inherit; }
+  .nav-items a:hover, .nav-back:hover, .pick-link:hover div:first-child, .colo-left:hover { color: var(--accent); }
+
+  a.chip { text-decoration: none; }
+  a.row { text-decoration: none; color: inherit; }
+  a.row:hover h3 { color: var(--accent); }
+  .empty-state { margin-top: 56px; padding: 56px 0 68px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .empty-state .e-cap { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: 2.4px; color: var(--accent); }
+  .empty-state h3 { margin-top: 18px; font-family: "Source Han Serif CN", serif; font-weight: 600; font-size: 30px; letter-spacing: 1.4px; }
+  .empty-state p { margin-top: 16px; width: 560px; font-size: 14px; line-height: 1.95; color: var(--ink-soft); }
+  .empty-state .e-link { display: inline-block; margin-top: 26px; font-size: 12px; letter-spacing: 1px; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule-strong); padding-bottom: 3px; }
+
+
+  /* 视口内水平居中 */
+  html { width: 100% !important; height: auto !important; }
+  body { margin: 0 auto !important; }
+
+</style>
+</head>
+<body style="width:1440px;height:1604px;">
+<main data-canvas-root style="width:1440px;height:1604px;">
+
+  <div class="topbar">
+    <div>ISSUE 001 · INDEX · COROBOT.COM</div>
+    <div>2026 / 11 / 17</div>
+  </div>
+
+  <header class="masthead">
+    <div class="logo-block">
+      <a class="logotype serif" href="/" style="text-decoration:none;color:inherit;">COROBOT</a>
+      <div class="logo-suffix">corobot.com</div>
+    </div>
+    <div class="masthead-right">
+      <div class="t serif">把 AI 带进物理世界</div>
+      <div class="n">第 001 期 · 资讯索引</div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-items">
+      <a href="/cover/">封面故事</a>
+      <a href="/latest/" class="active">最新资讯</a>
+      <a href="/#brief">每日快讯</a>
+      <a href="/atlas/">机器人图鉴</a>
+      <a href="/latest/">深度专题</a>
+    </div>
+    <div class="nav-right"><a class="nav-back" href="/">← 返回首页</a></div>
+  </nav>
+
+  <div class="page-head">
+    <div>
+      <div class="kicker"><span class="bar"></span><span class="txt">Channel ｜ 频道</span></div>
+      <h1>核心零部件</h1>
+      <p class="page-dek">该频道下已核实的观察与解读，按时间倒序。</p>
+    </div>
+    <div class="page-count">共 2 篇 · 更新至 2026.11.17<br>CHANNEL · PARTS</div>
+  </div>
+
+  <div class="filters">
+    <a class="chip" href="/latest/">全部</a>
+    <a class="chip" href="/channels/embodied/">具身智能</a>
+    <a class="chip" href="/channels/humanoid/">人形机器人</a>
+    <a class="chip" href="/channels/cobot/">协作机械臂</a>
+    <a class="chip" href="/channels/amr/">移动机器人</a>
+    <a class="chip" href="/channels/uav/">无人机</a>
+    <a class="chip" href="/channels/driving/">自动驾驶</a>
+    <a class="chip on" href="/channels/parts/">核心零部件</a>
+    <a class="chip" href="/channels/policy/">产业与政策</a>
+    <div class="search">
+      <svg class="ico" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="#8C877C" stroke-width="1.2"/><path d="M11 11l4 4" stroke="#8C877C" stroke-width="1.2"/></svg>
+      <span>搜索标题或关键词</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="list-col">
+
+
+
+      <div class="month-band">
+        <span class="m serif">二〇二六年十一月</span>
+        <span class="e">NOVEMBER 2026</span>
+        <span class="n">2 篇</span>
+      </div>
+
+      <a class="row" href="article-xilect-chip.html">
+        <div class="idx">01</div>
+        <div class="body">
+          <div class="meta"><span>SILICON</span><span class="date">11.13</span></div>
+          <h3>5 亿天使轮，赌一颗塞进机器人身体里的芯片</h3>
+          <p>沐曦与优必选合资的 Xilect 把感知、决策与运动控制塞进一颗 SoC；2027 年给伙伴开发平台，2028 年流片。</p>
+          <div class="foot">4 分钟阅读 · 核心零部件 · 阅读全文 →</div>
+        </div>
+      </a>
+
+      <a class="row" href="article-heymandex-wa100.html">
+        <div class="idx">02</div>
+        <div class="body">
+          <div class="meta"><span>PARTS</span><span class="date">11.13</span></div>
+          <h3>灵巧手先学会防水，再谈灵巧</h3>
+          <p>WA100 标准配置 300 米、可定制到 10000 米；五指、6 个主动自由度、11 个联动关节，重量不超过 1250 克。</p>
+          <div class="foot">4 分钟阅读 · 核心零部件 · 阅读全文 →</div>
+        </div>
+      </a>
+
+      <div class="chan-note">
+        <div class="caps2">HOW WE PICK · 选稿原则</div>
+        <p>这个频道只收三类稿：有可核对的原始来源；能说明一个物理或工程上的真实约束；以及愿意把还没解决的问题一起写出来。样本少的时候，它宁可不更新。</p>
+      </div>
+
+      <div class="more-btn">订阅周报 · 每日更新</div>
+      <div class="note">该频道共 2 篇；其余条目见<a href="/latest/" style="color:inherit;border-bottom:1px solid #C9C3B6;text-decoration:none;">全部资讯</a></div>
+
+
+    </div>
+
+    <aside class="side-col">
+      <div class="side-card">
+        <div class="h serif">每周一封周报</div>
+        <p>把这一周机器人的真实进展寄给你，只留技术要点与出处。</p>
+        <input type="email" placeholder="你的邮箱">
+        <button>订阅</button>
+      </div>
+
+      <div class="side-block" id="topics">
+        <div class="s-t">TOPICS</div>
+        <div class="tag-list">
+          <span>具身智能</span><span>人形</span><span>力控</span><span>灵巧手</span>
+          <span>视觉感知</span><span>导航</span><span>空域</span><span>量产</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <div class="s-t">ARCHIVE</div>
+        <div class="arch-row"><span>2026 年 11 月</span><span class="c">14</span></div>
+        <div class="arch-row"><span>创刊号</span><span class="c">2026.11.17</span></div>
+      </div>
+
+      <div class="side-block">
+        <div class="s-t">EDITOR'S PICK</div>
+        <a class="pick-link" href="/cover/" style="margin-top:12px;">
+          <div style="font-family:'Source Han Serif CN',serif;font-weight:600;font-size:15px;line-height:1.6;">机器人不是某一种形状</div>
+          <div style="margin-top:6px;font-size:11px;color:#8C877C;letter-spacing:0.6px;">封面故事 · 8 分钟</div>
+        </a>
+        <a class="pick-link" href="/atlas/" style="margin-top:18px;">
+          <div style="font-family:'Source Han Serif CN',serif;font-weight:600;font-size:15px;line-height:1.6;">三类机器人载体的边界</div>
+          <div style="margin-top:6px;font-size:11px;color:#8C877C;letter-spacing:0.6px;">机器人图鉴 · 6 分钟</div>
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <section class="sub-strip">
+    <div class="copy">
+      <h3 class="serif">订阅周报，跳过信息噪声</h3>
+      <p>每周一封，只保留这一周真正值得读的机器人进展。</p>
+    </div>
+    <div class="form">
+      <input type="email" placeholder="你的邮箱">
+      <button>订阅</button>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <div class="colo-row">
+      <a class="colo-left serif" href="/">COROBOT</a>
+      <div class="colo-right">第 001 期 · 2026 年 11 月 17 日 · 更新至 2026.11.18　·　出版：Corobot.com 编辑部<br>© 2026 Corobot.com　·　内容仅作信息传播，不构成投资建议</div>
+    </div>
+        <div class="reprint">
+      <div class="k">转载声明</div>
+      <div class="t">本站内容分两类：编辑部原创的观察与评述，以及引用第三方报道的事实摘要。引用处均标注原始来源并给出链接，不转载全文。转载本站原创内容请保留署名「Corobot 编辑部」及原文链接，商业使用请联系 hello@corobot.com；若权利人认为本站引用不当，来信即删。</div>
+    </div>
+    <div data-canvas-bottom-safe-area="24" style="height:24px;"></div>
+  </footer>
+
+</main>
+</body>
+</html>
