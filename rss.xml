@@ -5,8 +5,48 @@
     <link>https://corobot.com/</link>
     <description>把 AI 带进物理世界。记录机械臂、移动底盘、无人机、自动驾驶与人形平台的已核实进展。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Nov 2026 11:26:24 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 03:34:08 GMT</lastBuildDate>
     <atom:link href="https://corobot.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>三星一次报两款人形机器人，入门和高端各一条线</title>
+      <link>https://corobot.com/articles/samsung-hr-he/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/samsung-hr-he/</guid>
+      <pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate>
+      <category>人形机器人</category>
+      <description>三星计划在 CES 2027 发布 HR（Human Reference）与 HE（Humanoid Extreme）两款人形机器人，前者入门、后者高端。这是三星自研人形机器人的首秀，但首秀不等于量产。</description>
+    </item>
+    <item>
+      <title>马斯克这次要证明的不是「能」，是「不用人扶」</title>
+      <link>https://corobot.com/articles/optimus-authentic/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/optimus-authentic/</guid>
+      <pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate>
+      <category>人形机器人</category>
+      <description>特斯拉计划两个月内放出 Optimus 的真实交互演示，明确强调不做预先写死的流程、不靠后台遥操作。与此同时，Gen3 已在弗里蒙特周产数百台，但全部留作内部训练。</description>
+    </item>
+    <item>
+      <title>数千万的融资，近百亿的估值</title>
+      <link>https://corobot.com/articles/infiforce-atombrain/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/infiforce-atombrain/</guid>
+      <pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate>
+      <category>具身智能</category>
+      <description>原力无限完成数千万元 Pre-B 轮，杭州资本独家投资，IT 桔子给出的当前估值近百亿元。做的是「具身大脑」，钱投的是位置，不是当期收入。</description>
+    </item>
+    <item>
+      <title>一天之内：一个「真实」的承诺、两条产品线、一笔百亿估值</title>
+      <link>https://corobot.com/articles/cn-robotics-daily-1119/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/cn-robotics-daily-1119/</guid>
+      <pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate>
+      <category>核心零部件</category>
+      <description>11 月 19 日：马斯克承诺两个月内放出不靠遥操作的真实演示，三星宣布 CES 2027 一次发两款人形机器人，原力无限完成 Pre-B 估值近百亿，北京 20 万台产能目标进入解读期。</description>
+    </item>
+    <item>
+      <title>20 万台的目标，和现在 5000 台的产能</title>
+      <link>https://corobot.com/articles/beijing-200k-capacity/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/beijing-200k-capacity/</guid>
+      <pubDate>Thu, 19 Nov 2026 01:00:00 GMT</pubDate>
+      <category>产业与政策</category>
+      <description>北京提出到 2028 年在京形成 20 万台/年的整机产能、京津冀产能占全国 25%。对照现实，亦庄人形中试平台目前年产能是 5000 台（套）。中间那段距离，靠的不是决心，是供应链密度。</description>
+    </item>
     <item>
       <title>实验室里九成，现场只剩三四成</title>
       <link>https://corobot.com/articles/hk-embodied-ground/</link>
