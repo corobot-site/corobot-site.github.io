@@ -5,8 +5,16 @@
     <link>https://corobot.com/</link>
     <description>把 AI 带进物理世界。记录机械臂、移动底盘、无人机、自动驾驶与人形平台的已核实进展。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Nov 2026 03:34:08 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 01:41:35 GMT</lastBuildDate>
     <atom:link href="https://corobot.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>人形机器人第一次有了「等级」</title>
+      <link>https://corobot.com/articles/miit-humanoid-standards/</link>
+      <guid isPermaLink="true">https://corobot.com/articles/miit-humanoid-standards/</guid>
+      <pubDate>Sat, 21 Nov 2026 01:00:00 GMT</pubDate>
+      <category>产业与政策</category>
+      <description>工信部 11 月 16 日发布 5 项人形机器人行业标准并即日实施，其中《智能化能力分级》把「有多聪明」拆成四个维度、划成 L0 到 L5 六级。行业竞争的语言，从「会什么」变成「第几级」。</description>
+    </item>
     <item>
       <title>三星一次报两款人形机器人，入门和高端各一条线</title>
       <link>https://corobot.com/articles/samsung-hr-he/</link>
